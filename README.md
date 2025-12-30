@@ -1,6 +1,6 @@
 # NEBSOA-LG (Spider Framework)
 
-Enterprise Java Framework for LGT Gateway
+Refactoring security issue. 
 
 ## Build
 
