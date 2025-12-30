@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!--service 엔진 관련  property -->
+<properties>
+	<Property key="cibs.SESSION_HEADER_SETTER_CLASS"
+	 value="nebsoa.service.session.SessionValueSetter"
+	 desc="SESSION 헤더 정보를 DataMap에 put 하는 클래스" />
+
+	<Property key="ibsmgr.SESSION_HEADER_SETTER_CLASS"
+	 value="nebsoa.service.session.SessionValueSetter"
+	 desc="SESSION 헤더 정보를 DataMap에 put 하는 클래스" />	 
+</properties>

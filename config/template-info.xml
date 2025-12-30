@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<template-info>
+    <group-map size="2">
+        <entry key="MSGDEFAULT">
+            <group id="MSGDEFAULT" desc="MESSAGE DEFAULT TEMPLATE">
+                <template-map size="5">
+                	<!-- 전문 템플릿 -->
+                    <entry key="Command.java.ftl">
+                        <template id="Command.java.ftl"/>
+                    </entry>
+                    <entry key="Biz.java.ftl">
+                        <template id="Biz.java.ftl"/>
+                    </entry>
+                    <entry key="Validator.java.ftl">
+                        <template id="Valid.java.ftl"/>
+                    </entry>
+                    <entry key="Result.jsp.ftl">
+                        <template id="Result.jsp.ftl"/>
+                    </entry>
+                    <entry key="Form.jsp.ftl">
+                        <template id="Form.jsp.ftl"/>
+                    </entry>
+                    <entry key="FormCommand.java.ftl">
+                        <template id="FormCommand.java.ftl"/>
+                    </entry>
+                </template-map>
+            </group>
+        </entry>
+        <entry key="DEFAULT">
+            <group id="DEFAULT" desc="JGEN DEFAULT TEMPLATE">
+                <template-map size="15">
+					<!-- 각각의 Biz 만들던 ftl -->
+<!--
+                    <entry key="DetailBiz.java.ftl">
+                        <template id="DetailBiz.java.ftl"/>
+                    </entry>
+                    <entry key="UpdateBiz.java.ftl">
+                        <template id="UpdateBiz.java.ftl"/>
+                    </entry>
+                    <entry key="CreateBiz.java.ftl">
+                        <template id="CreateBiz.java.ftl"/>
+                    </entry>
+                    <entry key="UpdateFormBiz.java.ftl">
+                        <template id="UpdateFormBiz.java.ftl"/>
+                    </entry>
+                    <entry key="DeleteBiz.java.ftl">
+                        <template id="DeleteBiz.java.ftl"/>
+                    </entry>               
+                    <entry key="BizDao.java.ftl">
+                        <template id="BizDao.java.ftl"/>
+                    </entry>
+                    <entry key="CreateFormCommand.java.ftl">
+                        <template id="CreateFormCommand.java.ftl"/>
+                    </entry>
+                    <entry key="DetailCommand.java.ftl">
+                        <template id="DetailCommand.java.ftl"/>
+                    </entry>
+                    <entry key="UpdateCommand.java.ftl">
+                        <template id="UpdateCommand.java.ftl"/>
+                    </entry>
+                    <entry key="ListCommand.java.ftl">
+                        <template id="ListCommand.java.ftl"/>
+                    </entry>
+                    <entry key="CreateCommand.java.ftl">
+                        <template id="CreateCommand.java.ftl"/>
+                    </entry>
+                    <entry key="UpdateForm.jsp.ftl">
+                        <template id="UpdateForm.jsp.ftl"/>
+                    </entry>
+                    <entry key="CreateForm.jsp.ftl">
+                        <template id="CreateForm.jsp.ftl"/>
+                    </entry>
+                    <entry key="js.ftl">
+                        <template id="js.ftl"/>
+                    </entry>
+                    <entry key="UpdateFormCommand.java.ftl">
+                        <template id="UpdateFormCommand.java.ftl"/>
+                    </entry>
+                    <entry key="List.jsp.ftl">
+                        <template id="List.jsp.ftl"/>
+                    </entry>
+                    <entry key="Detail.jsp.ftl">
+                        <template id="Detail.jsp.ftl"/>
+                    </entry>
+                    <entry key="DeleteCommand.java.ftl">
+                        <template id="DeleteCommand.java.ftl"/>
+                    </entry>     
+-->
+					<!-- templat/ 이전에 어드민에서 사용하던 ftl -->
+<!--
+                    <entry key="BizDao.java.ftl">
+                        <template id="BizDao.java.ftl"/>
+                    </entry>
+                    <entry key="CreateFormCommand.java.ftl">
+                        <template id="CreateFormCommand.java.ftl"/>
+                    </entry>
+                    <entry key="DetailCommand.java.ftl">
+                        <template id="DetailCommand.java.ftl"/>
+                    </entry>
+                    <entry key="UpdateCommand.java.ftl">
+                        <template id="UpdateCommand.java.ftl"/>
+                    </entry>
+                    <entry key="ListCommand.java.ftl">
+                        <template id="ListCommand.java.ftl"/>
+                    </entry>
+                    <entry key="CreateCommand.java.ftl">
+                        <template id="CreateCommand.java.ftl"/>
+                    </entry>
+                    <entry key="UpdateForm.jsp.ftl">
+                        <template id="UpdateForm.jsp.ftl"/>
+                    </entry>
+                    <entry key="CreateForm.jsp.ftl">
+                        <template id="CreateForm.jsp.ftl"/>
+                    </entry>
+                    <entry key="js.ftl">
+                        <template id="js.ftl"/>
+                    </entry>
+                    <entry key="UpdateFormCommand.java.ftl">
+                        <template id="UpdateFormCommand.java.ftl"/>
+                    </entry>
+                    <entry key="List.jsp.ftl">
+                        <template id="List.jsp.ftl"/>
+                    </entry>
+                    <entry key="Detail.jsp.ftl">
+                        <template id="Detail.jsp.ftl"/>
+                    </entry>
+                    <entry key="DeleteCommand.java.ftl">
+                        <template id="DeleteCommand.java.ftl"/>
+                    </entry>
+-->
+					<!-- templat/keb/onepage onepage module -->
+                    <entry key="BizDao.java.ftl">
+                        <template id="BizDao.java.ftl"/>
+                    </entry>
+                    <entry key="Sql.xml.ftl">
+                        <template id="Sql.xml.ftl"/>
+                    </entry>
+                    <entry key="Biz.java.ftl">
+                        <template id="Biz.java.ftl"/>
+                    </entry>
+                    <entry key="Command.java.ftl">
+                        <template id="java.ftl"/>
+                    </entry>
+                    <entry key="jsp.ftl">
+                        <template id="jsp.ftl"/>
+                    </entry>
+
+                </template-map>
+            </group>
+        </entry>
+    </group-map>
+</template-info>

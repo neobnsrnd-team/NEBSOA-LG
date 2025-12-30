@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!--was_config.properties.xml property -->
+<properties>
+
+	<Property key="DAILY_UID_MIN_VALUE" 
+		 value="50000001" 
+		 desc="일단위로 UNIQUE한 전문번호를 생성할 때 적용 할  최소값." />
+
+	<Property key="DAILY_UID_MAX_VALUE" 
+		 value="70000000" 
+		 desc="일단위로 UNIQUE한 전문번호를 생성할 때 적용 할  최대값." />		
+		 
+    <Property key="WAS_TYPE" 
+         value="AP" 
+         desc="CA11서버에 대한 WAS 유형[WEB, AP, ALL]" />
+</properties>

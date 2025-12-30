@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- 외환은행 CMS PLUS 개편 프로퍼티-->
+<properties>
+	<Property key="REPORT_BUILDER_DIR" 
+		 value="${APP_HOME}/config/report/bin" 
+		 desc="compile된 Report가 저장되는 directory" />
+	<Property key="REPORT_CONFIG_DIR" 
+		 value="${APP_HOME}/config/report/xml" 
+		 desc="Report XML file이 저장되는 directory" />		 
+</properties>

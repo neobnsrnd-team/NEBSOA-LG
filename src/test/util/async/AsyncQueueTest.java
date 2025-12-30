@@ -1,0 +1,69 @@
+/*
+ * Copyright 2004-2005 the original author.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package test.util.async;
+
+import nebsoa.common.log.LogManager;
+import nebsoa.util.async.*;
+
+/**
+ * @author 이종원
+ * Tester class for base AsyncQueueTest
+ */
+public class AsyncQueueTest {
+
+	
+	public static void main(String[] args) {
+		LogManager.debug("\n\n********* Starting Test ************************");
+//		QueueConfig config = AsyncQueueManager.getInstance().getQueueConfig("test"); 
+//		if(config == null) {
+//			config = AsyncQueueManager.getInstance().
+//      		makeAsyncQueue("test", 3, 10,100,0,"nebsoa.util.async.Consumer" , true);
+//		}
+		// load from config file
+		boolean autoCreate=true;
+		QueueConfig config = AsyncQueueManager.getInstance().getQueueConfig("test",autoCreate); 
+
+		Thread t = new TestProducer();
+		t.start();
+		try {
+			t.join();
+		} catch (Exception e) {
+		}
+		config.setRunning(false);
+      
+		LogManager.debug("\n\n********* Finished Test *************************");
+	}
+	
+	public static class TestProducer extends Thread {
+		public void run(){
+			QueueConfig config = AsyncQueueManager.getInstance().getQueueConfig("test");
+			for(int i=0;i<100;i++){
+				try {
+					config.getNextQueue().put(""+i);
+				} catch (AsyncQueueException e) {
+					LogManager.error(e.toString());
+
+				} catch (AsyncQueueTimeoutException e) {
+					LogManager.error(e.toString());
+				}
+				try {
+					Thread.sleep(100);
+				} catch (Exception e) {
+				}
+			}
+		}
+	}
+}

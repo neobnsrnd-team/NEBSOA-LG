@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!--msg property -->
+<properties>
+	<Property key="계좌조회테스트" 
+		 value="계좌조회테스트.xml" 
+		 desc="계좌조회테스트" />
+	<Property key="다중루프테스트" 
+		 value="다중루프테스트.xml" 
+		 desc="다중루프테스트" />
+	<Property key="당행이체테스트" 
+		 value="당행이체테스트.xml" 
+		 desc="당행이체테스트" />
+	<Property key="로그인테스트" 
+		 value="로그인테스트.xml" 
+		 desc="로그인테스트" />
+	<Property key="예비이체테스트" 
+		 value="예비이체테스트.xml" 
+		 desc="예비이체테스트" />
+	<Property key="이체내역조회" 
+		 value="이체내역조회.xml" 
+		 desc="이체내역조회" />
+	<Property key="인풋루프테스트" 
+		 value="인풋루프테스트.xml" 
+		 desc="인풋루프테스트" />
+</properties>

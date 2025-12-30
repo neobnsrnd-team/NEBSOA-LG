@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="FwkCodeTable">
+
+  <!-- Select with no parameters using the result map for Account class. -->
+  <select id="selectAllCoderesultMap" parameterClass="java.util.HashMap" >
+    SELECT * FROM FWK_CODE
+  </select>
+  
+  <select id="selectAllCodeMap" parameterClass="java.util.HashMap">
+    SELECT CODE_GROUP_ID , 
+   	CODE , 
+   	CODE_NAME , 
+   	CODE_DESC , 
+   	SORT_ORDER , 
+   	USE_YN  FROM FWK_CODE
+  </select>
+  
+    <select id="selectCodeByCodeGroupId" parameterClass="nebsoa.common.util.DataMap" 
+  	resultClass="java.util.HashMap">
+   SELECT 
+   	CODE_GROUP_ID , 
+   	CODE , 
+   	CODE_NAME , 
+   	CODE_DESC , 
+   	SORT_ORDER , 
+   	USE_YN 
+   	FROM FWK_CODE
+   	<dynamic prepend="WHERE">
+	   	<isNotNull prepend="AND" property="codeGroupId">
+	CODE_GROUP_ID = #codeGroupId#
+		</isNotNull>
+		<isNotNull prepend="AND" property="code">
+	CODE=#code#
+		</isNotNull>
+	</dynamic>
+  </select>
+  
+  <!-- A simpler select example without the result map.  Note the 
+       aliases to match the properties of the target result class. -->
+  <select id="selectCodeByCodeGroupIdMap" parameterClass="nebsoa.common.util.DataMap" 
+  	resultClass="java.util.HashMap">
+   SELECT 
+   	CODE_GROUP_ID , 
+   	CODE , 
+   	CODE_NAME , 
+   	CODE_DESC , 
+   	SORT_ORDER , 
+   	USE_YN 
+   	FROM FWK_CODE
+   	<dynamic prepend="WHERE">
+	   	<isNotNull prepend="AND" property="codeGroupId">
+	CODE_GROUP_ID = #codeGroupId#
+		</isNotNull>
+		<isNotNull prepend="AND" property="code">
+	CODE=#code#
+		</isNotNull>
+	</dynamic>
+  </select>
+   
+  
+  <insert id="insertFwkCode" parameterClass="nebsoa.common.util.DataMap">
+    INSERT INTO FWK_CODE (
+	   	CODE_GROUP_ID , 
+	   	CODE , 
+	   	CODE_NAME , 
+	   	CODE_DESC , 
+	   	SORT_ORDER , 
+	   	USE_YN 
+    VALUES (
+      #codeGroupId#, #code#, #codeName#, #codeDesc#, #sortOrder#, #useYn#
+    )
+  </insert>
+
+
+  <update id="updateFwkCode" parameterClass="java.util.HashMap">
+    UPDATE FWK_CODE SET
+      CODE_NAME = #codeName#,
+      CODE_DESC = #codeDesc#,
+      SORT_ORDER = #sortOrder#,
+      USE_YN = #useYn#
+    WHERE
+      CODE_GROUP_ID = #codeGroupId#
+      AND CODE = #code#
+  </update>
+
+
+  <delete id="deleteFwkCodeById" parameterClass="int">
+    DELETE FROM FWK_CODE 
+    WHERE CODE_GROUP_ID = #codeGroupId#
+    AND CODE = #code#
+  </delete>
+
+</sqlMap>

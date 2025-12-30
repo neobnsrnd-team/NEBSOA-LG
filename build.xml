@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ Build file for the Spider Framework
+
+ Copyright (c) 2006-2007 ServerSide Corp. All Rights Reserved.
+
+  본 소스 및 바이너리 파일에 대한 권한은 모두 ServerSide 에 있습니다.
+  저작자와의 협의 없이 수정 및 무단 배포를 금합니다.
+-->
+
+<project name="LgtSpiderFramework" default="build" basedir=".">
+
+	<property file="build.properties" />
+
+	<tstamp>
+		<format property="work.date" pattern="yyyyMMddHHmmss" />
+	</tstamp>
+
+	<path id="class.path">
+		<fileset dir="${lib.dir}">
+			<include name="**/*.jar" />
+		</fileset>
+		<!-- 컴파일 된 클래스를 클래스 패스에 추가합니다. -->
+		<pathelement path="${target.classes.dir}" />
+	</path>
+
+	<target name="mkdir">
+		<echo>기본적으로 필요한 디렉토리들을 생성합니다.</echo>
+		<mkdir dir="${log.dir}" />
+		<mkdir dir="${config.dir}/operation" />
+		<mkdir dir="${dist.dir}" />
+		<mkdir dir="${target.dir}" />
+		<mkdir dir="${target.classes.dir}" />
+	</target>
+
+	<!-- Delete classes files -->
+	<target name="clean" description="Delete all classes dirs">
+		<echo>모든 컴파일된 클래스 파일을 삭제합니다.</echo>
+		<delete quiet="true" includeEmptyDirs="true">
+			<fileset dir="${dist.dir}" />
+			<fileset dir="${target.classes.dir}" />
+		</delete>
+	</target>
+
+	<target name="init" depends="mkdir">
+		<echo>빌드를 위한 초기화를 수행합니다.</echo>
+	</target>
+
+	<target name="compile" depends="init">
+		<echo>컴파일을 수행합니다.</echo>
+		<javac srcdir="${src.dir}" fork="yes" memoryMaximumSize="256m"
+		destdir="${target.classes.dir}" deprecation="off" debug="on" optimize="on"
+		source="17" target="17" encoding="UTF-8" includeantruntime="false">
+			<classpath refid="class.path" />
+		</javac>
+		<copy todir="${target.classes.dir}" preservelastmodified="true">
+			<fileset dir="${src.dir}">
+				<include name="*.properties" />
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="build" depends="compile,nebsoa-jar" description="build">
+		<echo>빌드를 수행합니다.</echo>
+	</target>
+
+	<target name="nebsoa-jar" depends="nebsoa_common.jar,nebsoa_management.jar,nebsoa_biz.jar,nebsoa_spiderlink.jar,
+			nebsoa_ejb.jar,nebsoa_monitor.jar,nebsoa_monitor_plugin.jar,nebsoa_util.jar,
+			nebsoa_logserver.jar, nebsoa_service.jar">
+		<echo>nebsoa JAR 파일들을 생성합니다.</echo>
+	</target>
+
+	<target name="nebsoa_common.jar" depends="init,compile">
+		<echo>nebsoa_common.jar 파일로 압축합니다.</echo>
+		<jar jarfile="${dist.dir}/nebsoa_common.jar">
+			<fileset dir="${target.classes.dir}">
+				<include name="nebsoa/common/**" />
+			</fileset>
+		</jar>
+	</target>
+
+	<target name="nebsoa_management.jar" depends="init,compile">
+		<echo>nebsoa_management.jar 파일로 압축합니다.</echo>
+		<jar jarfile="${dist.dir}/nebsoa_management.jar">
+			<fileset dir="${target.classes.dir}">
+				<include name="nebsoa/management/**" />
+				<exclude name="nebsoa/management/ejb/**" />
+			</fileset>
+		</jar>
+	</target>
+
+	<target name="nebsoa_biz.jar" depends="init,compile">
+		<echo>nebsoa_biz.jar 파일로 압축합니다.</echo>
+		<jar jarfile="${dist.dir}/nebsoa_biz.jar">
+			<fileset dir="${target.classes.dir}">
+				<include name="nebsoa/biz/**" />
+			</fileset>
+		</jar>
+	</target>
+
+	<target name="nebsoa_spiderlink.jar" depends="init,compile">
+		<echo>nebsoa_spiderlink.jar 파일로 압축합니다.</echo>
+		<jar jarfile="${dist.dir}/nebsoa_spiderlink.jar">
+			<fileset dir="${target.classes.dir}">
+				<include name="nebsoa/spiderlink/**" />
+			</fileset>
+		</jar>
+	</target>
+
+	<target name="nebsoa_monitor.jar" depends="init,compile">
+		<echo>nebsoa_monitor.jar 파일로 압축합니다.</echo>
+		<jar jarfile="${dist.dir}/nebsoa_monitor.jar">
+			<fileset dir="${target.classes.dir}">
+				<include name="nebsoa/monitor/**" />
+			</fileset>
+		</jar>
+	</target>
+
+	<target name="nebsoa_monitor_plugin.jar" depends="init,compile">
+		<echo>nebsoa_monitor_plugin.jar 파일로 압축합니다.</echo>
+		<jar jarfile="${dist.dir}/nebsoa_monitor_plugin.jar">
+			<fileset dir="${target.classes.dir}">
+				<include name="nebsoa/plugin/monitor/**" />
+			</fileset>
+		</jar>
+	</target>
+
+	<target name="nebsoa_util.jar" depends="init,compile">
+		<echo>nebsoa_util.jar 파일로 압축합니다.</echo>
+		<jar jarfile="${dist.dir}/nebsoa_util.jar">
+			<fileset dir="${target.classes.dir}">
+				<include name="nebsoa/util/**" />
+			</fileset>
+		</jar>
+	</target>
+
+	<target name="nebsoa_logserver.jar" depends="init,compile">
+		<echo>nebsoa_logserver.jar 파일로 압축합니다.</echo>
+		<jar jarfile="${dist.dir}/nebsoa_logserver.jar">
+			<fileset dir="${target.classes.dir}">
+				<include name="nebsoa/logserver/**" />
+				<exclude name="nebsoa/logserver/ejb/**" />
+			</fileset>
+		</jar>
+	</target>
+
+	<target name="nebsoa_service.jar" depends="init,compile">
+		<echo>nebsoa_service.jar 파일로 압축합니다.</echo>
+		<jar jarfile="${dist.dir}/nebsoa_service.jar">
+			<fileset dir="${target.classes.dir}">
+				<include name="nebsoa/service/**" />
+				<exclude name="nebsoa/service/ejb/**" />
+			</fileset>
+		</jar>
+	</target>
+
+	<target name="nebsoa_ejb.jar" depends="init,compile">
+		<echo>nebsoa_ejb.jar 파일로 압축합니다.</echo>
+		<jar jarfile="${dist.dir}/nebsoa_ejb.jar">
+			<fileset dir="${target.classes.dir}">
+				<include name="nebsoa/biz/ejb/**/*.class" />
+				<include name="nebsoa/spiderlink/ejb/**/*.class" />
+				<include name="nebsoa/management/ejb/**/*.class" />
+				<include name="nebsoa/logserver/ejb/**/*.class" />
+				<include name="nebsoa/service/ejb/**/*.class" />
+			</fileset>
+		</jar>
+	</target>
+
+	<!--
+    ####################################################################
+        JIBX 바인딩 파일들을 컴파일합니다.
+
+        JIBX 로 컴파일된 클래스 파일과 바인딩 configuration XML 파일을 읽어서,
+        Object-XML-Binding 코드를 생성합니다.
+        따라서, 해당 클래스가 새 컴파일되면 바인딩 컴파일도 다시 되어야 합니다.
+    ####################################################################
+    -->
+
+	<taskdef name="bind" classname="org.jibx.binding.ant.CompileTask">
+		<classpath refid="class.path" />
+	</taskdef>
+
+	<target name="jibx_compile:all" description="Compile All JIBX XML-Object binding configuration file" depends="jibx_compile:neb_projectinfo,jibx_compile:neb_msgprojectinfo,jibx_compile:neb_serviceinfo,jibx_compile:neb_commonprojectinfo,jibx_compile:neb_templateinfo" />
+
+	<target name="jibx_compile:neb_projectinfo">
+		<echo>Compile JIBX XML-Object binding configuration file : ${config.dir}/neb_projectinfo-bind.xml</echo>
+		<bind verbose="true" load="true" binding="${config.dir}/neb_projectinfo-bind.xml">
+			<classpath refid="class.path" />
+		</bind>
+	</target>
+
+	<target name="jibx_compile:neb_msgprojectinfo">
+		<echo>Compile JIBX XML-Object binding configuration file : ${config.dir}/neb_msgprojectinfo-bind.xml</echo>
+		<bind verbose="true" load="true" binding="${config.dir}/neb_msgprojectinfo-bind.xml">
+			<classpath refid="class.path" />
+		</bind>
+	</target>
+
+	<target name="jibx_compile:neb_serviceinfo">
+		<echo>Compile JIBX XML-Object binding configuration file : ${config.dir}/neb_serviceinfo-bind.xml</echo>
+		<bind verbose="true" load="true" binding="${config.dir}/neb_serviceinfo-bind.xml">
+			<classpath refid="class.path" />
+		</bind>
+	</target>
+
+	<target name="jibx_compile:neb_commonprojectinfo">
+		<echo>Compile JIBX XML-Object binding configuration file : ${config.dir}/neb_commonprojectinfo-bind.xml</echo>
+		<bind verbose="true" load="true" binding="${config.dir}/neb_commonprojectinfo-bind.xml">
+			<classpath refid="class.path" />
+		</bind>
+	</target>
+
+	<target name="jibx_compile:neb_templateinfo">
+		<echo>Compile JIBX XML-Object binding configuration file : ${config.dir}/neb_templateinfo-bind.xml</echo>
+		<bind verbose="true" load="true" binding="${config.dir}/neb_templateinfo-bind.xml">
+			<classpath refid="class.path" />
+		</bind>
+	</target>
+
+	<!--
+        Defines the report design compilation Ant task.
+    -->
+	<taskdef name="jrc" classname="net.sf.jasperreports.ant.JRAntCompileTask">
+		<classpath refid="class.path" />
+	</taskdef>
+
+	<!--
+    Compiles reports design files and the Java source files used in the report designs.
+    -->
+	<target name="report" depends="init" description="report compile">
+		<javac srcdir="${src.dir}/spider/web/report" destdir="${webAdmin.report.dir}" deprecation="off" debug="off" optimize="on">
+			<classpath refid="class.path" />
+		</javac>
+		<jrc srcdir="${report.dir}" destdir="${webAdmin.report.dir}" tempdir="${report.dir}" keepjava="false" xmlvalidation="true">
+			<classpath refid="class.path" />
+		</jrc>
+	</target>
+
+	<target name="lgt프레임워크로복사" depends="build" description="copy to lgt">
+		<echo>lgt 관리자 프로젝트에 프레임웍 라이브러리를 복사합니다.</echo>
+		<copy todir="${lgt.admin.lib.dir}" preservelastmodified="true">
+			<fileset dir="${dist.dir}">
+				<include name="nebsoa_*.jar" />
+				<exclude name="*_web.jar" />
+				<exclude name="*_applet.jar" />
+			</fileset>
+		</copy>
+		<copy todir="${lgt.admin.lib.dir}/web" preservelastmodified="true">
+			<fileset dir="${dist.dir}">
+				<include name="nebsoa_web.jar" />
+				<include name="nebsoa_chart_applet.jar" />
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="lgtGw로복사" depends="build" description="copy to lgtGw">
+		<echo>lgtGW 프로젝트에 프레임웍 라이브러리를 복사합니다.</echo>
+		<copy todir="${lgtGw.admin.lib.dir}" preservelastmodified="true">
+			<fileset dir="${dist.dir}">
+				<include name="nebsoa_*.jar" />
+				<exclude name="*_web.jar" />
+				<exclude name="*_applet.jar" />
+			</fileset>
+		</copy>
+	</target>
+</project>

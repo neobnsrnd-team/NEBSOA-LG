@@ -1,0 +1,31 @@
+<binding>
+	<mapping name="service" class="spider.jgen.service.ServiceInfo">
+		<value style="attribute" name="description" field="description"/>
+		<value style="attribute" name="package" field="packageName"/>
+		<value style="attribute" name="class" field="className"/>
+		<structure field="inputInfo" type="spider.jgen.service.InputInfo"/>
+		<structure field="outputInfo" type="spider.jgen.service.OutputInfo"/>
+	</mapping>
+	<mapping name="input-info" class="spider.jgen.service.InputInfo">
+		<collection field="inputDataList" item-type="spider.jgen.service.DataInfo"/>
+	</mapping>
+	<mapping name="output-info" class="spider.jgen.service.OutputInfo">
+		<collection field="outputDataList" item-type="spider.jgen.service.DataInfo"/>
+	</mapping>
+	<mapping name="data" class="spider.jgen.service.DataInfo">
+		<value style="attribute" name="data_id" field="dataId"/>
+		<value style="attribute" name="data_label" field="dataLabel"/>
+		<value style="attribute" name="data_type" field="dataType"/>
+		<value style="attribute" name="size" field="size"/>
+		<value style="attribute" name="nullable" field="isNullable"/>
+		<value style="attribute" name="input_type" field="inputType"/>
+		<value style="attribute" name="input_value" field="inputValue"/>
+		<value style="attribute" name="data_domain" field="dataDomain"/>
+		<value style="attribute" name="code_mapping" field="codeMapping"/>
+		<collection field="options" item-type="spider.jgen.service.OptionInfo"/>
+	</mapping>
+	<mapping name="options" class="spider.jgen.service.OptionInfo">
+		<value style="attribute" name="value" field="value"/>
+		<value style="attribute" name="display" field="display"/>
+	</mapping>
+</binding>

@@ -1,0 +1,15 @@
+<binding>
+	<mapping name="template-info" class="nebsoa.jgen.template.TemplateInfo">
+		<!-- collection field="groups" item-type="nebsoa.jgen.template.Group"/ -->
+		<structure field="groups" name="group-map" marshaller="org.jibx.extras.HashMapperStringToComplex" unmarshaller="org.jibx.extras.HashMapperStringToComplex"/>
+	</mapping>
+	<mapping name="group" class="nebsoa.jgen.template.Group">
+		<value style="attribute" name="id" field="id"/>
+		<value style="attribute" name="desc" field="desc"/>
+		<!-- collection field="templates" item-type="serverside.common.jgen.template.Template"/ -->
+		<structure field="templates" name="template-map" marshaller="org.jibx.extras.HashMapperStringToComplex" unmarshaller="org.jibx.extras.HashMapperStringToComplex"/>
+	</mapping>
+	<mapping name="template" class="nebsoa.jgen.template.Template">
+		<value style="attribute" name="id" field="id"/>
+	</mapping>
+</binding>

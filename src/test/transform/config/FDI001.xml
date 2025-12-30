@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<layout>
+	<description>외자 서버와 MT300수신, MT396,970송신, SYSTEM관리전문 송수신</description>
+	<package>com.keb.stpa.engine.msg</package>
+	<class>FDI001Message</class>
+	<error codeOrder="7" successCode="000" messageOrder="8"/>
+	<fields>
+		<field size='3' justify='left' type='String' required="true" default='' constraint='' match-key='' description='전문구분코드' />
+		<field size='14' justify='left' type='String' required="true"  default='' constraint='' match-key='' description='송신일시' />
+		<field size='20' justify='left' type='String' required="true" default='' constraint='' match-key='' description='전문고유번호' />
+		<field size='20' justify='left' type='String' required="false" default='' constraint='' match-key='' description='CLS전문번호' />
+		<field size='1' justify='left' type='String' required="false" default='' constraint='' match-key='' description='IO SWAP 여부' />
+		<field size='11' justify='left' type='String' required="false" default='' constraint='' match-key='' description='거래상대방BIC' />
+		<field size='3' justify='left' type='String' required="false" default='' constraint='' match-key='' description='응답코드' />
+		<field size='100' justify='left' type='String' required="false" default='' constraint='' match-key='' description='응답메세지' />
+		<field size='28' justify='left' type='String' required="false" default='' constraint='' match-key='' description='예비필드' />
+	</fields>
+</layout>

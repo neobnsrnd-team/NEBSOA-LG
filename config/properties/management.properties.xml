@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!--management property -->
+<properties>
+	<Property key="COMMUNICATION_METHOD" 
+		 value="EJB" 
+		 desc="프레임웍 원격관리를 위한 통신방법(EJB or SOCKET)" />
+         
+	<Property key="OPERATION_INFO_XML_SAVE_MODE" 
+		 value="FALSE" 
+		 desc="운영정보 파일 저장 여부" />
+		 
+	<Property key="OPERATION_INFO_XML_PATH" 
+		 value="${APP_HOME}/config/operation/" 
+		 desc="운영정보 파일 저장 경로" />
+		 
+	<Property key="MESSAGEENGINECONTEXT_XML" 
+		 value="message_engine_context.xml" 
+		 desc="MessageEngineContext XML 파일명" />
+
+	<!-- Message Structure Pool -->	
+	<Property key="MESSAGESTRUCTUREPOOL_XML" 
+		 value="message_structure_pool" 
+		 desc="MessageStructurePool의 XML 파일명 공통부 .xml은 지정하지 마세요." />	 
+		 
+	<!-- Message Code Pool -->	
+	<Property key="MESSAGECODEPOOL_XML" 
+		 value="message_code_pool.xml" 
+		 desc="MessageCodePool XML 파일명" />	
+		 
+	<!-- ErrorCodeUtil -->	 
+	<Property key="ERRORCODEUTIL_XML" 
+		 value="error_code_util.xml" 
+		 desc="ErrorCodeUtil XML 파일명" />		 
+		 
+	<!-- WebAppMapping -->	 
+	<Property key="WEBAPPMAPPING_XML" 
+		 value="web_app_mapping.xml" 
+		 desc="WebAppMapping XML 파일명" />		 
+		 
+	<!-- BizManager -->	 
+	<Property key="BIZMANAGER_XML" 
+		 value="biz_manager.xml" 
+		 desc="BizManager XML 파일명" />		 
+		 
+	<!-- I18NUtil -->	 
+	<Property key="I18NUTIL_XML" 
+		 value="i18n_util.xml" 
+		 desc="I18NUtil XML 파일명" />	
+
+	<!-- CodeUtil -->	 		 
+	<Property key="CODEUTIL_XML" 
+		 value="code_util.xml" 
+		 desc="CodeUtil XML 파일명" />	
+		 
+	<!-- JSUtil -->	 
+	<Property key="JSUTIL_XML" 
+		 value="js_util.xml" 
+		 desc="JSUtil XML 파일명" />	
+		 
+	<!-- WasManager -->	 
+	<Property key="WASMANAGER_XML" 
+		 value="was_manager.xml" 
+		 desc="WasManager XML 파일명" />	
+</properties>

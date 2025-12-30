@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<spider.common.util.I18NUtil>
+  <multiKeyMap>
+    <map class="org.apache.commons.collections.map.HashedMap" serialization="custom">
+      <org.apache.commons.collections.map.HashedMap>
+        <default/>
+        <float>0.75</float>
+        <int>16</int>
+        <int>0</int>
+      </org.apache.commons.collections.map.HashedMap>
+    </map>
+  </multiKeyMap>
+  <chchePool/>
+</spider.common.util.I18NUtil>

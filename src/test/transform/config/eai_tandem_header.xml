@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<layout>
+	<description>Tandem헤더를 포함한 EAI 전문을 나타내는 클래스</description>
+	<package>com.keb.stpa.engine.msg</package>
+	<class>TandemEAIMessage</class>
+	<error codeOrder="28" successCode="00000" messageOrder=""/>
+
+	<fields>
+		<field size="10" 	justify="right" 	type="length"	default="" 	constraint="1,*,y"						match-key=""		description="총전문길이(EAI 채널헤더)"/>
+		<field size="10" 	justify="right" 	type="length"	default="" 	constraint="30,*,y"					match-key=""		description="전문길이(EAI 채널헤더)"/>
+		<field size="1" 		justify="left" 	type="String" 	default="" 	constraint=""							match-key=""		description="sync구분(EAI 채널헤더)"/>
+		<field size="5" 		justify="left" 	type="String" 	default="" 	constraint=""							match-key=""		description="header구분(EAI 채널헤더)"/>
+		<field size="8" 		justify="left" 	type="date" 	default="" 	constraint="yyyyMMdd"				match-key=""		description="거래일자(EAI 채널헤더)"/>
+		<field size="8" 		justify="left" 	type="String" 	default="" 	constraint=""							match-key=""		description="송신서버(EAI 채널헤더)"/>
+		<field size="8" 		justify="left" 	type="String" 	default="" 	constraint=""							match-key=""		description="수신서버(EAI 채널헤더)"/>
+		<field size="28" 	justify="left" 	type="String"	default="" 	constraint=""							match-key=""		description="송신서버일련번호(EAI 채널헤더)"/>
+		<field size="6" 		justify="left" 	type="String" 	default="" 	constraint=""							match-key=""		description="전문구분(EAI 채널헤더)"/>
+		<field size="4" 		justify="right" 	type="long" 		default="" 	constraint=""							match-key=""		description="전문처리순번(EAI 채널헤더)"/>
+		<field size="16" 	justify="left" 	type="String" 	default="" 	constraint=""							match-key=""		description="서비스명(EAI 채널헤더)"/>
+		<field size="2" 		justify="left" 	type="String" 	default="" 	constraint=""							match-key=""		description="단말매체(EAI 채널헤더)"/>
+		<field size="15" 	justify="left" 	type="String" 	default="" 	constraint=""							match-key=""		description="단말IP(EAI 채널헤더)"/>
+		<field size="4" 		justify="right" 	type="long" 		default="" 	constraint=""							match-key=""		description="거래일련번호(정보계 처리순번)(EAI 채널헤더)"/>
+		<field size="4" 		justify="right" 	type="long" 		default="" 	constraint=""							match-key=""		description="가상거래순번(ucrt data 중 대량 처리용)(EAI 채널헤더)"/>
+		<field size="2" 		justify="left" 	type="String" 	default="" 	constraint=""							match-key=""		description="거래플래그(EAI 채널헤더)"/>
+		<field size="1" 		justify="left" 	type="String" 	default="" 	constraint=""							match-key=""		description="요구응답구분(EAI 채널헤더)"/>
+		<field size="8" 		justify="left" 	type="date" 	default="" 	constraint="yyyyMMdd"				match-key=""		description="영업일자(EAI 채널헤더)"/>
+		<field size="16" 	justify="left" 	type="date" 	default="" 	constraint="yyyyMMddHHmmssSS"	match-key=""		description="업무서버송신일시(EAI 채널헤더)"/>
+		<field size="16" 	justify="left" 	type="date" 	default="" 	constraint="yyyyMMddHHmmssSS"	match-key=""		description="업무서버응답일시(EAI 채널헤더)"/>
+		<field size="1" 		justify="left" 	type="String" 	default="" 	constraint=""							match-key=""		description="메시지형식(EAI 채널헤더)"/>
+		<field size="1" 		justify="left" 	type="String" 	default="" 	constraint=""							match-key=""		description="메시지변환(EAI 채널헤더)"/>
+		<field size="1" 		justify="left" 	type="String" 	default="" 	constraint=""							match-key=""		description="처리결과(EAI 채널헤더)"/>
+		<field size="1" 		justify="left" 	type="String" 	default="" 	constraint=""							match-key=""		description="인터페이스환경(EAI 채널헤더)"/>
+		<field size="10" 	justify="left" 	type="String" 	default="" 	constraint=""							match-key=""		description="EAI거래코드(EAI 채널헤더)"/>
+		<field size="35" 	justify="left" 	type="String"	default="" 	constraint=""							match-key=""		description="EAI일련번호(EAI 채널헤더)"/>
+		<field size="1" 		justify="left" 	type="String" 	default="" 	constraint=""							match-key=""		description="서버COMMIT여부(EAI 채널헤더)"/>
+		<field size="5" 		justify="left" 	type="String" 	default="00000" 	constraint=""					match-key=""		description="EAI오류코드(EAI 채널헤더)"/>
+		<field size="6" 		justify="left" 	type="date" 	default="" 	constraint="HHmmss"					match-key=""		description="거래발생시각(EAI 채널헤더)"/>
+		<field size="3" 		justify="right" 	type="int" 		default="240"	constraint=""							match-key=""		description="Timeout시간(EAI 채널헤더)"/>
+		<field size="3" 		justify="right" 	type="int" 		default="240" 	constraint=""							match-key=""		description="잔여기준시간(EAI 채널헤더)"/>
+		<field size="14" 	justify="left" 	type="String" 	default="" 	constraint=""							match-key=""		description="통합전문일련번호"/>
+		<field size="14" 	justify="left" 	type="String" 	default="" 	constraint=""							match-key=""		description="Reserved(EAI 채널헤더)"/>
+		<field size="2" 		justify="left" 	type="String" 	default="LS" 	constraint=""						match-key=""		description="매체코드(EAI 전문헤더)"/>
+		<field size="4" 		justify="left" 	type="String" 	default="" 	constraint=""							match-key=""		description="부점코드(EAI 전문헤더)"/>
+		<field size="3" 		justify="left" 	type="String" 	default="000" 	constraint=""						match-key=""		description="단말번호(EAI 전문헤더)"/>
+		<field size="7" 		justify="left" 	type="String" 	default="" 	constraint=""							match-key=""		description="직번(EAI 전문헤더)"/>
+		<field size="4" 		justify="left" 	type="String" 	default="" 	constraint=""							match-key=""		description="메시지통번(EAI 전문헤더)"/>
+		<field size="4" 		justify="left" 	type="String" 	default="" 	constraint=""							match-key=""		description="미들웨이통번(EAI 전문헤더)"/>
+		<field size="3" 		justify="right" 	type="int" 		default="" 	constraint=""							match-key=""		description="출력메시지갯수(EAI 전문헤더)"/>
+		<field size="1" 		justify="left" 	type="String" 	default="1" 	constraint=""							match-key=""		description="기관코드(EAI 전문헤더)"/>
+		<field size="2" 		justify="left" 	type="String" 	default="" 	constraint=""							match-key=""		description="다음출력대상구분(EAI 전문헤더)"/>
+		<field size="8" 		justify="left" 	type="hex" 		default="0200000000000000" 	constraint="" match-key=""		description="시스템FLAG(EAI 전문헤더)"/>
+		<field size="1" 		justify="left" 	type="String" 	default="0" 	constraint=""							match-key=""		description="계정갱신모드구분(EAI 전문헤더)"/>
+		<field size="1" 		justify="left" 	type="hex" 		default="00" 	constraint=""							match-key=""		description="승인FLAG(EAI 전문헤더)"/>
+		<field size="1" 		justify="left" 	type="String" 	default="0" 	constraint=""							match-key=""		description="승인응답구분(EAI 전문헤더)"/>
+		<field size="1" 		justify="left" 	type="String" 	default="0" 	constraint=""							match-key=""		description="책임자1승인응답구분(EAI 전문헤더)"/>
+		<field size="1" 		justify="left" 	type="String" 	default="0" 	constraint=""							match-key=""		description="책임자2승인응답구분(EAI 전문헤더)"/>
+		<field size="9" 		justify="left" 	type="String" 	default="321004002" 	constraint=""			match-key=""		description="거래코드(화면번호)(EAI 전문헤더)"/>
+		<field size="2" 		justify="left" 	type="String" 	default="LS" 	constraint=""						match-key=""		description="거래SUB코드(EAI 전문헤더)"/>
+		<field size="3" 		justify="right" 	type="int" 		default="" 	constraint=""							match-key=""		description="거래로그건수(EAI 전문헤더)"/>
+		<field size="8" 		justify="left" 	type="String" 	default="" 	constraint=""							match-key=""		description="자동화기기버전(EAI 전문헤더)"/>
+		<field size="8" 		justify="left" 	type="String" 	default="" 	constraint=""							match-key=""		description="Reserved(EAI 전문헤더)"/>
+		<field size="2" 		justify="left" 	type="String" 	default="E1" 	constraint=""							match-key=""		description="대외업무구분"/>
+		<field size="4" 		justify="left" 	type="String" 	default="0099" 	constraint=""							match-key=""		description="대외기관코드"/>
+		<field size="2" 		justify="left" 	type="String" 	default="" 	constraint=""							match-key=""		description="GroupID"/>
+		<field size="1" 		justify="left" 	type="String" 	default="" 	constraint=""							match-key=""		description="송수신업무구분"/>
+		<field size="1" 		justify="left" 	type="String" 	default="" 	constraint=""							match-key=""		description="시뮬레이션구분"/>
+		<field size="10" 		justify="left" 	type="String" 	default="" 	constraint=""							match-key=""		description="예비"/>		
+	</fields>
+	<tail size="1" value="0x1f"/>
+</layout>

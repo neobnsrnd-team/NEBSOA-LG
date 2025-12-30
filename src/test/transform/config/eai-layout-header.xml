@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<layout>
+	<description>EAI 의 전문 헤더를 나타내는 클래스</description>
+	<package>com.keb.stpa.engine.msg</package>
+	<class>EAILayoutHeader</class>
+
+	<fields>
+		<field name="mediumCode" 		size="2" 		order="left" 	type="String" 	default="" 			description="매체코드"/>
+		<field name="manDepCd" 			size="4" 		order="left" 	type="String" 	default="" 			description="부점코드"/>
+		<field name="teminalNo" 			size="3" 		order="left" 	type="String" 	default="" 			description="단말번호"/>
+		<field name="empNo" 				size="7" 		order="left" 	type="String" 	default="" 			description="직번"/>
+		<field name="msgNo" 				size="4" 		order="left" 	type="String" 	default="" 			description="메시지통번"/>
+		<field name="midleNo" 				size="4" 		order="left" 	type="String" 	default="" 			description="미들웨이통번"/>
+		<field name="outMsgNo" 			size="3" 		order="right" 	type="int" 		default="" 			description="출력메시지갯수"/>
+		<field name="orgCd" 				size="1" 		order="left" 	type="String" 	default="" 			description="기관코드"/>
+		<field name="nextOutType" 		size="2" 		order="left" 	type="String" 	default="" 			description="다음출력대상구분"/>
+		<field name="systemFlag" 		size="8" 		order="left" 	type="String" 	default="" 			description="시스템FLAG"/>
+		<field name="acctUpdateMode" 	size="1" 		order="left" 	type="String" 	default="" 			description="계정갱신모드구분"/>
+		<field name="acceptFlag" 		size="1" 		order="left" 	type="String" 	default="" 			description="승인FLAG"/>
+		<field name="acceptResType" 	size="1" 		order="left" 	type="String" 	default="" 			description="승인응답구분"/>
+		<field name="owner1ResType" 	size="1" 		order="left" 	type="String" 	default="" 			description="책임자1승인응답구분"/>
+		<field name="owner2ResType" 	size="1" 		order="left" 	type="String" 	default="" 			description="책임자2승인응답구분"/>
+		<field name="tradeCode" 			size="9" 		order="left" 	type="String" 	default="" 			description="거래코드(화면번호)"/>
+		<field name="tradeSubCode" 	size="2" 		order="left" 	type="String" 	default="" 			description="거래SUB코드"/>
+		<field name="tradeLogNo" 		size="3" 		order="right" 	type="int" 		default="" 			description="거래로그건수"/>
+		<field name="autoMechVer" 		size="8" 		order="left" 	type="String" 	default="" 			description="자동화기기버전"/>
+		<field name="reserved" 			size="8" 		order="left" 	type="String" 	default="" 			description="RESERVED"/>
+	</fields>
+</layout>

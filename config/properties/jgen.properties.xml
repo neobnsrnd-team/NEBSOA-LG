@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!--jgen.properties.xml property -->
+<properties>
+	<Property key="ENCRIPT_PASSWORD_YN" 
+		 value="Y" 
+		 desc="INPUT TYPE이 PASSWORD일 때 암호화 할 것인지 여부" />
+	<Property key="JEN_TARGET_PATH" 
+		 value="${APP_HOME}/generated" 
+		 desc="Generate 될 소스의 루트 디렉토리" />
+	<Property key="JAVA_TARGET_PATH" 
+		 value="/src" 
+		 desc="JAVA 코드가 생성 될 디렉토리" />
+	<Property key="JRXML_TARGET_PATH" 
+		 value="/report" 
+		 desc="보고서양식 XML파일이 생성 될 디렉토리" />
+	<Property key="JSP_TARGET_PATH" 
+		 value="/jsp" 
+		 desc="JSP 코드가 생성 될 디렉토리" />
+	<Property key="JAVASCRIPT_TARGET_PATH" 
+		 value="/js" 
+		 desc="자바스크립트 코드가 생성 될 디렉토리" />		 
+	<Property key="SQL_TARGET_PATH" 
+		 value="/sql" 
+		 desc="sql 쿼리문이 생성 될 디렉토리" />
+	<Property key="PACKAGE_PREFIX" 
+		 value="" 
+		 desc="package.prefix" />
+	<Property key="SCHEMA_FILE_NAME" 
+		 value="schema.xml" 
+		 desc="코드 생성할 대상 FILE NAME" />
+	<Property key="SCHEMA_FILE_PATH" 
+		 value="${APP_HOME}/xml" 
+		 desc="코드 생성할 대상 디렉토리" />
+
+
+	<Property key="DB_SCHEMA_FILE_PATH" 
+		 value="${APP_HOME}/xml/db" 
+		 desc="DB 기반 소스 생성 xml 저장 디렉토리" />
+	<Property key="MSG_SCHEMA_FILE_PATH" 
+		 value="${APP_HOME}/xml/msg" 
+		 desc="전문 기반 소스 생성 xml 저장 디렉토리" />
+
+	<Property key="TEMPLATEPARSER_admin-crud" 
+		 value="spider.jgen.parser.클래스명" 
+		 desc="LGT MusicOn 소스 생성 Parser" />
+		 
+		 
+	<Property key="SCHEMA_OWNER" 
+		 value="ibkdb2" 
+		 desc="코드 생성할 대상 DB의 소유자" />
+	<Property key="TABLENAME_CUT_PREFIX" 
+		 value="FWK_" 
+		 desc="테이블 이름 중에 잘라 낼 PREFIX" />
+	<Property key="TABLENAME_CUT_SUFFIX" 
+		 value="TB_" 
+		 desc="테이블 이름 중에 잘라 낼 SUFFIX" />
+	<Property key="TARGET_DB" 
+		 value="SERVERSIDE" 
+		 desc="코드 생성할 대상 DB" />
+	<Property key="TARGET_SCHEMA_OBJECT_TYPE" 
+		 value="TABLE SYNONYM VIEW SEQUENCE" 
+		 desc="코드 생성할 대상 DB SCHEMA 객체" />
+	<Property key="TEMPLATE_CONFIG_FILE_PATH" 
+		 value="${APP_HOME}/config" 
+		 desc="" />
+	<Property key="TEMPLATE_FILE_PATH" 
+		 value="${APP_HOME}/templates/keb" 
+		 desc="코드 생성에 사용 할 TEMPLATE FILE 디렉토리" />
+	<Property key="MAKE_SUB_PACKAGE" 
+		 value="true" 
+		 desc="코드 생성시 subpackage를 생성  할 것인지 여부 " />		 
+	<Property key="NAMMING_CLASS_NAME" 
+		 value="spider.jgen.parser.namming.KebNamming" 
+		 desc="jGen으로 js, html, jsp를 생성할 경우 파일명을 정해진 네이밍룰에 맞게 생성함.(default : spider.jgen.parser.namming.DefaultNamming)" />
+	<Property key="JSUTIL_LOADTYPE" 
+		 value="DB" 
+		 desc="JSUtil클래스의 로더 타입(XML or DB) " />		 
+	<Property key="JAVASCRIPT_XML_FILE_PATH" 
+		 value="${APP_HOME}/config/properties/javascript_config.xml" 
+		 desc="JSUtil클래스의 로더 타입이 XML일 경우 이 설정에 셋팅된 경로에서 Data Domain 정보를 읽어온다.  " />
+</properties>

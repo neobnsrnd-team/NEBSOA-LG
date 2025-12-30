@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<layout>
+	<description>외신계에 송수신하기 위한 헤더 (incomming)</description>
+	<package>com.keb.stpa.engine.msg</package>
+	<class>FXI003Message</class>
+	<error codeOrder="1" successCode="0000" messageOrder="2"/>
+
+	<fields>
+		<field size="4" 		justify="left" 	type="String"	default="0000" 	constraint=""				match-key=""	required="false"	description="리턴코드"/>
+		<field size="60" 	justify="left" 	type="String"	default="" 			constraint=""				match-key=""	required="false"	description="리턴메시지"/>
+		<field size="18" 	justify="left" 	type="String" 	default="" 			constraint=""				match-key=""	required="true"	description="외신전문번호"/>
+		<field size="8" 		justify="left" 	type="date" 	default="" 			constraint="yyyyMMdd"	match-key=""	required="true"	description="외신처리일"/>
+		<field size="3" 		justify="left" 	type="String" 	default="" 			constraint=""				match-key=""	required="true"	description="전문타입"/>
+		<field size="11" 	justify="left" 	type="String" 	default="" 			constraint=""				match-key=""	required="true"	description="상대은행BIC코드"/>
+		<field size="11" 	justify="left" 	type="String"	default="" 			constraint=""				match-key=""	required="true"	description="발신은행BIC코드"/>
+		<field size="11" 	justify="left" 	type="String" 	default="" 			constraint=""				match-key=""	required="true"	description="제3자은행DEAL상대BIC"/>
+		<field size="16" 	justify="left" 	type="String" 	default="" 			constraint=""				match-key=""	required="true"	description="거래참조번호"/>
+		<field size="3"		justify="left" 	type="String" 	default="" 			constraint=""				match-key=""	required="false"	description="통화기호"/>
+		<field size="18" 	justify="left" 	type="double" 	default="" 			constraint="18,3"			match-key=""	required="false"	description="외신금액"/>
+		<field size="1" 		justify="left" 	type="String" 	default="" 			constraint=""				match-key=""	required="false"	description="DUP여부"/>
+		<field size="4" 		justify="right" 	type="length"	default="" 			constraint="1,*,y"			match-key=""	required="false"	description="전문길이"/>
+	</fields>
+</layout>

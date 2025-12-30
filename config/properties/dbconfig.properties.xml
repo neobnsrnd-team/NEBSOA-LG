@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!--default property -->
+<properties>
+	<Property key="SQLMAP_PREFIX_FILENAME" 
+		 value="sqlmap" 
+		 desc="ibatis 의 SqlMapClient 초기화를 위한 파일들의 접두어" />	  
+		 
+	<Property key="DEFAULT_SQLMAP_FILENAME" 
+		 value="default" 
+		 desc="Default SqlMapClient의 기본 셋팅 정보 및 DataSource 정보, Sql list가 있는 파일 이름"/>
+
+	<Property key="SPIDER_SQLMAP_FILENAME" 
+		 value="default" 
+		 desc="DB_NAME이 SPIDER로 들어오는 SqlMapClient의 기본 셋팅 정보"/>
+		 
+</properties>

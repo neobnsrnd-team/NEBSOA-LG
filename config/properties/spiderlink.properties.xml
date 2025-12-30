@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!--spiderlink.properties.xml property -->
+<properties>
+	<Property key="MSG_MONITOR_LOG" 
+		 value="DEBUG" 
+		 desc="전문 송수신 모니터링 로그" />				 
+	<Property key="MESSAGE_MAX_LENGTH" 
+		 value="100000000" 
+		 desc="Socket I/O 시 악의로 보낸 전문 차단의 위한 한계 값-초과하면 버린다 " />	 		 
+	<Property key="NUMERIC_UNPADDING_YN" 
+		 value="true" 
+		 desc="Numeirc 타입으로 선언된 응답 전문 필드의 좌측 '0'값 unpadding 여부(숫자,소숫점이 있는 숫자)" />	 		 
+</properties>

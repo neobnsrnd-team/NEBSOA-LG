@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!--db.properties.xml property -->
+<properties>
+
+	<Property key="DATABASE_MONITOR_MODE" 
+		 value="true" 
+		 desc="CONNECTION, STATEMENT 성능, LEAK MONITOR MODE" />
+	<Property key="DATA_SIZE_MONITOR_MODE" 
+		 value="false" 
+		 desc="SELECT QUERY의 결과SET이 64000byte이상인지 여부를 모니터링할 것인지 여부, 운영시에는 반드시 FALSE | false 로 세팅한다." />
+	<Property key="DEFAULT_DB" 
+		 value="SPIDER" 
+		 desc="default로 사용할 database 설정" />
+	<Property key="QUERY_MONITOR_MODE" 
+		 value="true" 
+		 desc="SQL을 콘솔에 출력되게 할 것인지 여부 개발시에는 TRUE로 세팅하고 운영시에는 FALSE로 세팅한다" />
+	<Property key="SPIDER.DATASOURCE.NAME" 
+		 value="IBS_DB" 
+		 desc="커넥션 풀 이름" />
+	<Property key="SPIDER.DATASOURCE.PREFIX" 
+		 value="" 
+		 desc="SPIDER Datasource의 prefix" />
+	<Property key="SPIDER.DB_NAME" 
+		 value="" 
+		 desc="DB_NAME" />
+	<Property key="SPIDER.DRIVER"
+         value="oracle.jdbc.OracleDriver"
+         desc="커넥션 풀을 사용하지 않을 경우 사용할 드라이버 설정" />
+	<Property key="SPIDER.JDBC_DBMS_TYPE"
+         value="OracleSchemaBrowser"
+         desc="DB Schema 정보를 로딩하는 클래스" />
+	<Property key="SPIDER.ID"
+         value="lgt"
+         desc="LGT USER : 커넥션 풀을 사용하지 않을 경우 이용" />       
+    <Property key="SPIDER.PASSWD"
+         value="lgt99"
+         desc="커넥션 풀을 사용하지 않을 경우 사용할 user 비밀번호" />
+    <Property key="SPIDER.URL"
+         value="jdbc:oracle:thin:@210.96.202.110:1521:serverside"
+         desc="CONNECTION POOL을 사용하지 않을 경우 접근할 DB URL" />   
+	<Property key="SPIDER.USE_DATASOURCE" 
+		 value="false" 
+		 desc="커넥션 풀을 사용 여부" />
+	<Property key="SPIDER.WAS_CONFIG_MAPPING" 
+		 value="" 
+		 desc="DATASOURCE를 사용시 WAS설정에서 어떤 설정 정보를 찾아 적용할 것인지 여부" />
+	<Property key="TX_SERVICE_TYPE" 
+		 value="0" 
+		 desc="TX SERVICE IMPL 객체 타입 " />
+		 
+<!-- SPIDER connection pool 설정정보(추후 DB추가시, 각 DB별로 [DB명.접미사] 형식의 Key명으로 아래설정을 추가하면 됨) -->
+	<Property key="SPIDER.POOLABLE"
+		 value="true"
+		 desc="DBCP 풀 사용여부(SPIDER.USE_DATASOURCE 설정보다 우선순위가 낮음. 즉, SPIDER.USE_DATASOURCE값이 true면, 이 설정은 사용되지 않음)" />
+	<Property key="SPIDER.MAX_ACTIVE"
+		 value="40"
+		 desc="최대 연결수" />
+	<Property key="SPIDER.MAX_IDLE"
+		 value="10"
+		 desc="최대 연결 유지수" />
+	<Property key="SPIDER.MIN_IDLE"
+		 value="10"
+		 desc="최소 연결 유지수" />
+	<Property key="SPIDER.MAX_WAIT"
+		 value="5000"
+		 desc="연결 요청시도후 대기 시간(단위, 1/1000초), DEFAULT는 5초" />
+	<Property key="SPIDER.TEST_SQL"
+		 value="select 1 from dual"
+		 desc="연결 테스트 쿼리" />
+	<Property key="SPIDER.TEST_WHILE_IDLE"
+		 value="true"
+		 desc="TRUE면 비활성화 커넥션을 추출할때 커넥션이 유효한지 검사하여 유효하지 않은 커넥션은 풀에서 제거" />
+	<Property key="SPIDER.TIME_BETWEEN_EVICTION_RUNS_MILLIS"
+		 value="-1"
+		 desc="default로 -1 설정함(비활성화 커넥션을 추출하는 쓰레드가 돌지 않음). 양수로 설정시 10분(600000 m/s)일 경우, 이 주기로 사용되지 않는 커넥션 추출" />
+	<Property key="SPIDER.TEST_ON_BORROW"
+		 value="true"
+		 desc="TRUE면 커넥션을 풀에서 얻기전에 유효한 커넥션인지 체크한다.(현재 커넥션이 유효하지 않으면 풀에서 제거하고, 풀에서 다른 커넥션을 얻는다.)" />
+		 
+</properties>

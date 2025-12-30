@@ -1,0 +1,84 @@
+<binding>
+	<mapping name="message" class="nebsoa.jgen.common.CommonProjectInfo">
+		<value style="attribute" name="author" field="author"/>
+		<value style="attribute" name="email" field="email"/>
+		<value style="attribute" name="ver" field="ver"/>
+		<value style="attribute" name="write_date" field="writeDate"/>
+		<structure field="messageModule" type="nebsoa.jgen.common.CommonModuleInfo"/>
+	</mapping>
+	<mapping name="messageModule" class="nebsoa.jgen.common.CommonModuleInfo">
+		<value style="attribute" name="package" field="packageName"/>		
+		<value style="attribute" name="input_class" field="inputClassName"/>				
+		<value style="attribute" name="output_class" field="outputClassName"/>
+		<value style="attribute" name="service_id" field="serviceId"/>
+		<value style="attribute" name="file_name" field="fileName"/>		
+		<value style="attribute" name="generate_module" field="generateModule"/>
+		<value style="element" name="description" field="description"/>
+		<!-- msg속성 추가 -->
+		<value style="attribute" name="biz_id" field="bizId"/>
+		<value style="attribute" name="org_id" field="orgId"/>
+		<!-- DB속성 추가 -->
+		<value style="attribute" name="table" field="tableName"/>
+		<value style="attribute" name="where" field="where"/>
+		<value style="attribute" name="multipart" field="multipart"/>
+		<value style="attribute" name="excel" field="excel"/>
+		<value style="attribute" name="report" field="report"/>
+		<value style="attribute" name="print" field="print"/>
+		<value style="attribute" name="upload_dir" field="uploadDir"/>
+		<value style="attribute" name="upload_url" field="uploadUrl"/>
+		<structure field="inputMessage" type="nebsoa.jgen.common.CommonInputInfo"/>
+		<structure field="outputMessage" type="nebsoa.jgen.common.CommonOutputInfo"/>
+	</mapping>
+	<mapping name="inputMessage" class="nebsoa.jgen.common.CommonInputInfo">
+		<value style="attribute" name="input_message_id" field="inputMessageId"/>
+		<value style="attribute" name="input_message_name" field="inputMessageName"/>
+		<collection field="inputMessageField" item-type="nebsoa.jgen.common.CommonInputFieldInfo"/>
+	</mapping>
+	<mapping name="outputMessage" class="nebsoa.jgen.common.CommonOutputInfo">
+		<value style="attribute" name="output_message_id" field="outputMessageId"/>
+		<value style="attribute" name="output_message_name" field="outputMessageName"/>
+		<collection field="outputMessageField" item-type="nebsoa.jgen.common.CommonOutputFieldInfo"/>
+	</mapping>
+	<mapping name="inputMessageField" class="nebsoa.jgen.common.CommonInputFieldInfo">
+		<value style="attribute" name="field_id" field="fieldId"/>
+		<value style="attribute" name="field_name" field="fieldName"/>
+		<value style="attribute" name="data_type" field="dataType"/>
+		<value style="attribute" name="size" field="size"/>
+		<value style="attribute" name="input_type" field="inputType"/>
+		<value style="attribute" name="input_value" field="inputValue"/>
+		<value style="attribute" name="nullable" field="nullable"/>
+		<value style="attribute" name="use_colspan" field="useColspan"/>	
+		<value style="attribute" name="endTable" field="endTable"/>			
+		<value style="attribute" name="data_domain" field="dataDomain"/>
+		<value style="attribute" name="field_domain_id" field="fieldDomainId"/>
+		<value style="attribute" name="desc" field="desc"/>
+		<value style="attribute" name="pk" field="isPk"/>
+		<!-- msg속성 추가 -->
+		<value style="attribute" name="use_dataMap" field="useDataMap"/>
+		<value style="attribute" name="test_value" field="testValue"/>
+		<!-- DB속성 추가 -->
+		<value style="attribute" name="display_in_list" field="displayInList"/>
+		<value style="attribute" name="search_column" field="isSearchColumn"/>
+		<value style="attribute" name="search_condition" field="searchType"/>
+		<value style="attribute" name="modifiable" field="modifiable" usage="optional"/>
+		<value style="attribute" name="use_inline_column" field="useInlineColumn" usage="optional"/>
+		<value style="attribute" name="inline_column" field="inlineColumn" usage="optional"/>
+		<collection field="inoptions" item-type="nebsoa.jgen.common.OptionInfo"/>
+	</mapping>
+	<mapping name="outputMessageField" class="nebsoa.jgen.common.CommonOutputFieldInfo">
+		<value style="attribute" name="field_id" field="fieldId"/>
+		<value style="attribute" name="field_name" field="fieldName"/>
+		<value style="attribute" name="data_type" field="dataType"/>
+		<value style="attribute" name="size" field="size"/>
+		<value style="attribute" name="code_mapping" field="codeMapping"/>
+		<value style="attribute" name="use_colspan" field="useColspan"/>
+		<value style="attribute" name="endTable" field="endTable"/>			
+		<value style="attribute" name="multi_language" field="multiLang"/>
+		<value style="attribute" name="data_domain" field="dataDomain"/>
+		<value style="attribute" name="pk" field="isPk"/>
+	</mapping>
+	<mapping name="inoptions" class="nebsoa.jgen.common.OptionInfo">
+		<value style="attribute" name="value" field="value"/>
+		<value style="attribute" name="display" field="display"/>
+	</mapping>
+</binding>

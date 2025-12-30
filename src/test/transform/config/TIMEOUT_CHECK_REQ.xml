@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<layout>
+	<description>eai timeout check message</description>
+	<package>com.keb.stpa.engine.msg</package>
+	<class>EAITimeoutCheckReqMessage</class>
+	<error codeOrder="1" successCode="0" />
+	<fields>
+		<field size='10' justify='left' type='String' default='' constraint='' match-key='' description='EAI 거래코드' />
+		<field size='28' justify='left' type='String' default='' constraint='' match-key='' description='송신서버일련번호' />
+	</fields>
+</layout>

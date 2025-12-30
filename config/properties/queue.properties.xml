@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!--async queue config -->
+<properties>
+	<Property key="CONFIG_DB_MODE" 
+		 value="false" 
+		 desc="queue config 정보를 DB로 부터 로딩 할 것인지 여부" />
+	<Property key="test.Queue.Count" 
+		 value="3" 
+		 desc="test queue 객체의 갯수(default : 1개)" />
+	<Property key="test.Queue.Size"
+		 value="1" 
+		 desc="test queue 객체마다 생성할 버퍼의 size (default 256 개)." />	 
+	<Property key="test.Consumer.Timeout" 
+		 value="3000" 
+		 desc="test queue에  있는 것을 처리하기 위한 쓰레드가 기다리는 timeout(Default : 30초)" />
+	<Property key="test.Producer.Timeout" 
+		 value="1000" 
+		 desc="test queue에  넣는 쓰레드가 max로 기다리는 시간 (Default : 1 초)" />		 
+	<Property key="test.Consumer.PollingInterval" 
+		 value="0" 
+		 desc="test queue에 있는 데이터를 처리 하고 난 후 다시 꺼내려고 하기 전 sleep time(Default : 0)" />
+	<Property key="test.Consumer.IsBulk" 
+		 value="false" 
+		 desc="test queue에 쌓인 데이터를 bulk로 처리 할 것인지 여부" />
+	<Property key="test.Consumer.Class" 
+		 value="nebsoa.util.async.Consumer" 
+		 desc="test queue에 쌓인 데이터를 처리할 클래스, 널인경우 Factory를 지정해야 한다." />		 
+	<Property key="test.ConsumerFactory.Class" 
+		 value="false" 
+		 desc="test queue에 쌓인 데이터를 처리할 클래스(Consumer)를 생성하는 factory클래스" />	
+		 		 		 		 		 		 		 		 		 
+</properties>

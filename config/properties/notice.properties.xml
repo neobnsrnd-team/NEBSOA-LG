@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!--notice property -->
+<properties>
+	<Property key="EMERGENCY" 
+		 value="시스템 정비로 인하여 사이트 사용이 일시 중지 되었습니다." 
+		 desc="긴급공지입니다." />
+	<Property key="USE_YN" 
+		 value="N" 
+		 desc="긴급공지사용여부" />
+</properties>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!--async property -->
+<properties>
+	
+	<Property  key="DEFAULT_ACTION_TIMEOUT"
+		 value="60000"
+		 desc="action이 요청을 보낸 후 응답을 받을 때 까지 최대 대기 시간 디폴트 설정(단위: millisecond)" />
+	
+	<Property  key="RESPONSE_WORKER_THREAD_MAX_IDLE"
+		 value="10"
+		 desc="응답 처리 쓰레드 풀의 max idle 갯수" />
+		 	 
+	<Property  key="RPC_EJB_NAME_FOR_RESPONSE"
+		 value="spider.biz.ejb.RPCEJB"
+		 desc="async biz app 에서 응답을 줄 때 사용하는 RPC EJB의 jndi name" />
+	 
+	<Property  key="ACTION.RESPONSE_WAS_SEARCH_MODE"
+		 value="auto"
+		 desc="async biz app 에서 응답 RPC EJB를 호출할 was id를 찾는 방법(자동 : auto, 수동 : manual)" />
+	 
+	<Property  key="ACTION.PROVIDER_URL"
+		 value="t3://127.0.0.1:8001"
+		 desc="ACTION.RESPONSE_WAS_SEARCH_MODE가 수동일 때 사용하는 PROVIDER_URL" />
+	
+	<Property  key="ACTION.INITIAL_CONTEXT_FACTORY"
+		 value="weblogic.jndi.WLInitialContextFactory"
+		 desc="ACTION.RESPONSE_WAS_SEARCH_MODE가 수동일 때 사용하는 INITIAL_CONTEXT_FACTORY" /> 
+	
+	<Property  key="BIZ.RESPONSE_WAS_SEARCH_MODE"
+		 value="auto"
+		 desc="async biz app 에서 응답 RPC EJB를 호출할 was id를 찾는 방법(자동 : auto, 수동 : manual)" />
+	 
+	<Property  key="BIZ.PROVIDER_URL"
+		 value="t3://127.0.0.1:8001"
+		 desc="ACTION.RESPONSE_WAS_SEARCH_MODE가 수동일 때 사용하는 PROVIDER_URL" />
+	
+	<Property  key="BIZ.INITIAL_CONTEXT_FACTORY"
+		 value="weblogic.jndi.WLInitialContextFactory"
+		 desc="ACTION.RESPONSE_WAS_SEARCH_MODE가 수동일 때 사용하는 INITIAL_CONTEXT_FACTORY" /> 	 
+		 
+</properties>

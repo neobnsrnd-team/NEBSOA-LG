@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!--combo property -->
+<properties>
+	<Property key="(dynamic)도메인" 
+		 value="SELECT FIELD_DOMAIN_ID, FIELD_DOMAIN_ID FROM FWK_FIELD_DOMAIN WHERE APPROVAL_YN=&apos;Y&apos; ORDER BY 1" 
+		 desc="(dynamic)도메인" />
+	<Property key="(dynamic)상위메세지" 
+		 value="select message_id, message_name, org_id from fwk_message where header_yn=&apos;Y&apos; " 
+		 desc="상위메세지" />
+	<Property key="(dynamic)필드풀" 
+		 value="SELECT MESSAGE_FIELD_ID, MESSAGE_FIELD_ID, FIELD_DOMAIN_ID FROM FWK_FIELD_POOL WHERE APPROVAL_YN=&apos;Y&apos;" 
+		 desc="(dynamic)필드풀" />
+	<Property key="(dynamic)필드풀데이타" 
+		 value="SELECT DATA_TYPE, DATA_LENGTH, SCALE, ALIGN, FIELD_DOMAIN_ID FROM FWK_FIELD_DOMAIN WHERE APPROVAL_YN=&apos;Y&apos;" 
+		 desc="다이나믹 필드풀데이타" />
+	<Property key="APP" 
+		 value="SELECT APP_ID, APP_NAME FROM FWK_APP" 
+		 desc="APP 입니다." />
+	<Property key="BATCH_APP" 
+		 value="SELECT BATCH_APP_ID , BATCH_APP_NAME FROM FWK_BATCH_APP" 
+		 desc="BATCH APP 콤보리스트" />
+	<Property key="BIZ_APP" 
+		 value="SELECT &apos; &apos;, &apos;없음&apos; FROM DUAL UNION ALL SELECT APP_ID, APP_NAME FROM FWK_APP WHERE APP_TYPE = &apos;2&apos;" 
+		 desc="BIZ_APP" />
+	<Property key="BIZ_APP(BIZ_CLIENT_APP용)" 
+		 value="SELECT BIZ_APP_ID, BIZ_APP_NAME FROM FWK_BIZ_APP" 
+		 desc="BIZ_APP(BIZ_CLIENT_APP용)" />
+	<Property key="BIZ_APP(FWK_BIZ_APP)" 
+		 value="SELECT &apos; &apos;, &apos;없음&apos; FROM DUAL UNION ALL SELECT BIZ_APP_ID, BIZ_APP_NAME FROM FWK_BIZ_APP" 
+		 desc="BIZ_APP(FWK_BIZ_APP)" />
+	<Property key="LABEL종류코드" 
+		 value="SELECT CODE , CODE_NAME FROM FWK_CODE WHERE CODE_GROUP_ID = &apos;20002&apos; ORDER BY CODE" 
+		 desc="LABEL의 종류를 나타내는 코드 콤보" />
+	<Property key="MENU APP" 
+		 value="SELECT MENU_URL, MENU_URL FROM FWK_MENU_APP" 
+		 desc="메뉴 APP 입니다." />
+	<Property key="ROLE" 
+		 value="SELECT ROLE_ID, ROLE_NAME FROM FWK_ROLE WHERE USE_YN = &apos;Y&apos;" 
+		 desc="사용자 등록시 롤을 SELECTBOX로 보여 주기 위한 콤보" />
+	<Property key="VALIDATOR_APP" 
+		 value="SELECT &apos; &apos;, &apos;없음&apos; FROM DUAL UNION ALL SELECT APP_ID, APP_NAME FROM FWK_APP WHERE APP_TYPE = &apos;3&apos;" 
+		 desc="VALIDATOR_APP" />
+	<Property key="WAS 설정" 
+		 value="SELECT WAS_CONFIG_ID, WAS_CONFIG_NAME FROM FWK_WAS_CONFIG" 
+		 desc="WAS 설정 Combo Box " />
+	<Property key="WAS인스턴스" 
+		 value="SELECT INSTANCE_ID , INSTANCE_NAME FROM FWK_WAS_INSTANCE" 
+		 desc="WAS 인스턴스 COMBO BOX" />
+	<Property key="WEB_APP" 
+		 value="SELECT APP_ID, APP_NAME FROM FWK_APP WHERE APP_TYPE = &apos;1&apos;" 
+		 desc="WEB_APP" />
+	<Property key="WEB_APP(FWK_WEB_APP)" 
+		 value="SELECT WEB_APP_ID, WEB_APP_NAME FROM FWK_WEB_APP" 
+		 desc="WEB_APP(FWK_WEB_APP)" />
+	<Property key="erp거래" 
+		 value="select a.trx_id, b.trx_name from fwk_trx_message a, fwk_trx b where a.trx_id=b.trx_id and a.org_id=&apos;ERP&apos; and IO_TYPE=&apos;I&apos;" 
+		 desc="erp거래" />
+	<Property key="거래" 
+		 value="SELECT TRX_ID, TRX_NAME FROM FWK_TRX" 
+		 desc="거래콤보" />
+	<Property key="기관" 
+		 value="SELECT ORG_ID, ORG_NAME FROM FWK_ORG" 
+		 desc="기관아이디 " />
+	<Property key="메뉴APP" 
+		 value="SELECT MENU_URL, MENU_URL FROM FWK_MENU_APP" 
+		 desc="메뉴 APP 입니다." />
+	<Property key="밸리데이션" 
+		 value="select validation_id, validation_desc from fwk_validation" 
+		 desc="밸리데이션" />
+	<Property key="상위메세지" 
+		 value="select message_id, message_name from fwk_message where header_yn=&apos;Y&apos; " 
+		 desc="상위메세지" />
+	<Property key="언어코드" 
+		 value="SELECT CODE, CODE_NAME FROM FWK_CODE WHERE CODE_GROUP_ID=&apos;20001&apos; ORDER BY CODE" 
+		 desc="언어코드 정보를 보여주기 위한 콤보" />
+	<Property key="업무분류" 
+		 value="SELECT BIZ_GROUP_ID, BIZ_GROUP_NAME FROM FWK_BIZ_GROUP" 
+		 desc="업무분류" />
+	<Property key="요청메세지" 
+		 value="select message_id, message_name, org_id from fwk_message where request_yn=&apos;Q&apos; " 
+		 desc="요청메세지" />
+	<Property key="은행코드" 
+		 value="SELECT CODE, CODE_NAME FROM FWK_CODE WHERE CODE_GROUP_ID=&apos;20000&apos; ORDER BY CODE" 
+		 desc="은행코드" />
+	<Property key="응답메세지" 
+		 value="select message_id, message_name, org_id from fwk_message where request_yn=&apos;S&apos; " 
+		 desc="응답메세지" />
+	<Property key="이중처리체크APP" 
+		 value="SELECT &apos; &apos;, &apos;없음&apos; FROM DUAL UNION ALL SELECT APP_ID, APP_NAME FROM FWK_APP WHERE APP_TYPE = &apos;4&apos;" 
+		 desc="이중처리체크APP" />
+	<Property key="코드그룹" 
+		 value="SELECT CODE_GROUP_ID, CODE_GROUP_NAME FROM FWK_CODE_GROUP" 
+		 desc="코드 그룹 정보를 보여주기 위한 콤보" />
+	<Property key="표준요청메세지" 
+		 value="select message_id, message_name from fwk_message where request_yn=&apos;Q&apos;  and org_id=&apos;STD&apos;" 
+		 desc="표준요청메세지" />
+	<Property key="표준응답메세지" 
+		 value="select message_id, message_name from fwk_message where request_yn=&apos;S&apos;  and org_id=&apos;STD&apos;" 
+		 desc="표준응답메세지" />
+	<Property key="업무분류" 
+		 value="select biz_group_id, biz_group_name from fwk_biz_group" 
+		 desc="업무분류" />		 
+	<Property key="INSTANCE_ID" 
+		 value="SELECT INSTANCE_ID, INSTANCE_NAME FROM FWK_WAS_INSTANCE" 
+		 desc="인스턴스정보" />
+	<Property key="캐쉬여부" 
+		 value="true" 
+		 desc="콤보 데이타를 캐쉬할것인지 여부" />   		 
+</properties>

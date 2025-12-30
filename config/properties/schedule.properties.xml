@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!--schedule.properties.xml property -->
+<properties>
+<!--
+	<Property key="FD_TEST_CALL_CRON_EXPRESSION" 
+		 value="0 0/10 7-23 * * ?" 
+		 desc="매일 7-23시 사이에 10분 간격으로 스케줄이 기동됩니다." />
+	<Property key="FD_TEST_CALL_JOB_CLASS" 
+		 value="com.keb.stpa.engine.schedule.FDSystemMsgSendJob" 
+		 desc="차세대 외자 테스트 콜 전송." />
+	<Property key="KFTC_TEST_CALL_CRON_EXPRESSION" 
+		 value="0 0/10 7-23 * * ?" 
+		 desc="매일 7-23시 사이에 10분 간격으로 스케줄이 기동됩니다." />
+	<Property key="KFTC_TEST_CALL_JOB_CLASS" 
+		 value="com.keb.stpa.engine.schedule.KFTCSystemMsgSendJob" 
+		 desc="KFTC 테스트 콜 전송." />
+	<Property key="WANG_LISTENER_CRON_EXPRESSION" 
+		 value="0 0/10 7-23 * * ?" 
+		 desc="매일 7-23시 사이에 10분 간격으로 스케줄이 기동됩니다." />
+	<Property key="WANG_LISTENER_JOB_CLASS" 
+		 value="com.keb.stpa.engine.schedule.WANGListenerJob" 
+		 desc="스케줄러에 의해서 WANG 수신 리스너가 동작합니다." />
+	<Property key="SCHEDULETEST_CRON_EXPRESSION" 
+		 value="0/5 * * * * ?" 
+		 desc="5초 간격으로 스케줄이 기동됩니다." />
+	<Property key="SCHEDULETEST_JOB_CLASS" 
+		 value="test.schedule.ScheduleSample" 
+		 desc="스케줄러에 의해서 SCHEDULETEST 클래스가 동작합니다." />		 
+-->
+</properties>

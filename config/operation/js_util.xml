@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<spider.web.validator.JSUtil>
+  <dbJsUtil>
+    <scriptInitMap>
+      <entry>
+        <string>KEB_ACCOUNT</string>
+        <string>onkeyup=&quot;javascript:formatKebAct(this)&quot; maskform=&apos;usermask&apos; chartype=&apos;engnum&apos;  </string>
+      </entry>
+      <entry>
+        <string>PSNCRN</string>
+        <string>onkeyup=&quot;javascript:psnCrnMaskup(this)&quot; maskform=&apos;usermask&apos; chartype=&apos;onlynum&apos;  </string>
+      </entry>
+      <entry>
+        <string>CRN</string>
+        <string> maskform=&apos;###-##-#####&apos; chartype=&apos;onlynum&apos;  </string>
+      </entry>
+      <entry>
+        <string>PSN</string>
+        <string> maskform=&apos;######-#######&apos; chartype=&apos;onlynum&apos;  </string>
+      </entry>
+      <entry>
+        <string>FLOAT_MONEY</string>
+        <string>  chartype=&apos;floatmoney&apos;  </string>
+      </entry>
+      <entry>
+        <string>KEB_ACCOUNT_PASS</string>
+        <string>  chartype=&apos;onlynum&apos;  </string>
+      </entry>
+      <entry>
+        <string>MONEY</string>
+        <string>  chartype=&apos;money&apos;  </string>
+      </entry>
+      <entry>
+        <string>DATE</string>
+        <string> maskform=&apos;####-##-##&apos; chartype=&apos;onlynum&apos;  </string>
+      </entry>
+      <entry>
+        <string>EMAIL</string>
+        <string>    </string>
+      </entry>
+    </scriptInitMap>
+    <scriptSubmitMap>
+      <entry>
+        <string>KEB_ACCOUNT</string>
+        <string></string>
+      </entry>
+      <entry>
+        <string>PSNCRN</string>
+        <string>validatePsnCrn(value)</string>
+      </entry>
+      <entry>
+        <string>CRN</string>
+        <string>validateCrn(crn)</string>
+      </entry>
+      <entry>
+        <string>PSN</string>
+        <string>validatePsn(psnno)</string>
+      </entry>
+      <entry>
+        <string>FLOAT_MONEY</string>
+        <string></string>
+      </entry>
+      <entry>
+        <string>KEB_ACCOUNT_PASS</string>
+        <string>validateKebAccountPassword(pass)</string>
+      </entry>
+      <entry>
+        <string>MONEY</string>
+        <string></string>
+      </entry>
+      <entry>
+        <string>DATE</string>
+        <string>validateDate8(cDate)</string>
+      </entry>
+      <entry>
+        <string>EMAIL</string>
+        <string>validateEmail(varemail)</string>
+      </entry>
+    </scriptSubmitMap>
+    <scriptMaskMap>
+      <entry>
+        <string>KEB_ACCOUNT</string>
+        <string>usermask</string>
+      </entry>
+      <entry>
+        <string>PSNCRN</string>
+        <string>usermask</string>
+      </entry>
+      <entry>
+        <string>CRN</string>
+        <string>###-##-#####</string>
+      </entry>
+      <entry>
+        <string>PSN</string>
+        <string>######-#######</string>
+      </entry>
+      <entry>
+        <string>FLOAT_MONEY</string>
+        <string></string>
+      </entry>
+      <entry>
+        <string>KEB_ACCOUNT_PASS</string>
+        <string></string>
+      </entry>
+      <entry>
+        <string>MONEY</string>
+        <string></string>
+      </entry>
+      <entry>
+        <string>DATE</string>
+        <string>####-##-##</string>
+      </entry>
+      <entry>
+        <string>EMAIL</string>
+        <string></string>
+      </entry>
+    </scriptMaskMap>
+  </dbJsUtil>
+</spider.web.validator.JSUtil>

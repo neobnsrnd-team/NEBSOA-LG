@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!--default property -->
+<properties>
+	<Property key="CACHE_REGIST_XML_FILE_PATH" 
+		 value="${APP_HOME}/config/properties/cache_register.xml" 
+		 desc="CACHE 설정 파일 위치 및 이름" />
+	<Property key="DEBUG_CACHE_LOG" 
+		 value="false" 
+		 desc="CACHE 정보를 콘솔에 출력할 것인지 여부" />		 
+	<Property key="LOG.CONSOLE_MODE" 
+		 value="ON" 
+		 desc="로그를 콘솔에도 출력할 것인지 여부" />
+	<Property key="LOG.FILE_MODE" 
+		 value="ON" 
+		 desc="로그를 파일에 기록 할 것인지 여부" />
+	<Property key="LOG_CONFIG_FILE_PATH" 
+		 value="${APP_HOME}/config/properties/log_config.xml" 
+		 desc="로그 모듈을 설정 해둔 파일의 위치 및 이름" />
+	<Property key="LOG_TAIL_SIZE" 
+		 value="30"  
+		 desc="로그 파일 조회에서 읽어 올  라인 수 " />
+	<Property key="LOG_CONFIG_DECO_YN" 
+		 value="Y"  
+		 desc="로그를 남길 때 로그 앞뒤에 특정 문자열을 붙일 것인지 여부 (LogManager.appendDecoration 메소드 참조)" />	 
+	<Property key="MENU_CREATE_DIR" 
+		 value="${APP_HOME}/web/menu/" 
+		 desc="MENU 생성 DIR의 위치" />
+	<Property key="PROPERTY.AUTO_RELOAD_MODE" 
+		 value="FALSE" 
+		 desc="PROPERTY 파일 AUTO_RELOAD_MODE, 가급적 ON으로 두고 필요시 RELOAD주기를 조절한다." />
+	<Property key="PROPERTY.AUTO_RELOAD_TERM" 
+		 value="30" 
+		 desc="PROPERTY 파일 변경체크를 하는 주기. 초 단위로 지정." />
+	<Property key="PROPERTY.STOP_AUTO_RELOADER_DAEMON" 
+		 value="TRUE" 
+		 desc="PROPERTY 파일 변경체크를 하는 DAEMON을 중지 시킬 것인지 여부,한번 중지 시키면 재 시작을 못시키므로 가급적 FALSE으로 두고 RELOAD주기를 조절한다." />
+	<Property key="SQL_LOAD_PATH" 
+		 value="${APP_HOME}/config/sql" 
+		 desc="sql 쿼리문을 로드할 디렉토리" />
+	<Property key="DATA_LOAD_TYPE" 
+		 value="DB" 
+		 desc="프레임웍에서 사용하는 데이타를 로딩할 리소스 (default:DB, other:XML)" />
+	<Property key="MSG_LOG_MODE" 
+		 value="OFF" 
+		 desc="전문 송수신 데이타 DB 로그 여부" />		 
+	<Property key="BATCH_MODE" 
+		 value="N" 
+		 desc="배치 스케쥴러 실행 여부" />	
+	<Property key="EncrypterKeyClassName" 
+		 value="keb.fwk.util.KebEncrypterKey" 
+		 desc="암복호화 key를 담고 있는 class" />	 
+	<Property key="MESSAGE_SYSTEM_KEYWORD_POOL_NAME" 
+		 value="keb.fwk.spiderlink.message.KebSystemValueKeywordPool" 
+		 desc="메시지엔진에서 사용하는 시스템 키워드 풀 클래스 이름" />	
+	<Property key="LANGUAGE_CODE_GROUP_ID" 
+		 value="FR20001" 
+		 desc="I18NUtil에서 다국어정보를 얻어오기 위한 코드 테이블의 언어 코드그룹ID" />
+	<Property key="QUENAME_CODE_GROUP_ID" 
+		 value="FR20003" 
+		 desc="실행큐 코드이름을 위한 코드 테이블의 실행큐 코드그룹ID" />	  
+	<Property key="ERROR_HANDLER_MODE" 
+		 value="TRUE" 
+		 desc="오류발생시 로그를 DB에 쌓고, 해당 오류처리 핸들러에게 오류처리를 처리하도록 지정하는 속성(FALSE면 별도의 오류처리를 하지 않음)"/>
+		 
+	<Property key="BIZ_DAY_CHECK_MODE" 
+         value="true" 
+         desc="영업일 체크를 사용할지 여부"/>
+	<Property key="BIZ_DAY_CHECK_DELEGATOR_CLASS_NAME" 
+         value="nebsoa.common.util.BizDayChecker" 
+         desc="공휴일 정보를 로딩하는 클래스로  영업일을 체크하는 경우 사용한다."/>
+    <Property key="BANK_STATUS_CHECK_CLASS_NAME" 
+         value="nebsoa.service.util.BankStatusManager" 
+         desc="타행상태를 체크하는 경우 사용한다."/>
+         
+         
+	<Property key="COMBO_SVC_ID" 
+         value="FWKZ0010D" 
+         desc="콤보 데이타를 조회하는 서비스 ID"/>
+	<Property key="MULTI_COMBO_SVC_ID" 
+         value="FWKZ0020D" 
+         desc="Multy 콤보 데이타를 조회하는 서비스 ID"/>         
+</properties>

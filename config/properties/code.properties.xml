@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!--FWK_CODE (코드 프로퍼티 )-->
+<properties>
+	<Property key="language_code" 
+		 value="20001" 
+		 desc="코드 테이블의 언어 코드값" />
+</properties>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<layout>
+	<description>외신계에 송수신하기 위한 헤더 (outgoing)</description>
+	<package>com.keb.stpa.engine.msg</package>
+	<class>FXO002Message</class>
+	<error codeOrder="1" successCode="0000" messageOrder="2"/>
+
+	<fields>
+		<field size="4" 		justify="left" 	type="String"	default="0000"					constraint=""				required="true"	match-key=""				description="리턴코드"/>
+		<field size="60" 	justify="left" 	type="String"	default="" 						constraint=""				required="false"	match-key=""				description="리턴메시지"/>
+		<field size="18" 	justify="left" 	type="String" 	default="" 						constraint=""				required="true"	match-key=""				description="외신전문번호"/>
+		<field size="8" 		justify="left" 	type="date" 	default="" 						constraint="yyyyMMdd"	required="true"	match-key=""				description="외신처리일"/>
+		<field size="7" 		justify="left" 	type="String" 	default="" 						constraint=""				required="true"	match-key=""				description="처리일련번호"/>
+		<field size="4" 		justify="left" 	type="String" 	default="" 						constraint=""				required="true"	match-key=""				description="부점코드"/>
+		<field size="3" 		justify="left" 	type="String" 	default="" 						constraint=""				required="true"	match-key="MSG_TYPE"	description="전문타입"/>
+		<field size="1" 		justify="left" 	type="String"	default="U" 						constraint=""				required="true"	match-key=""				description="우선순위"/>
+		<field size="11" 	justify="left" 	type="String" 	default="" 						constraint=""				required="true"	match-key="B2_BIC"		description="상대은행BIC코드"/>
+		<field size="11" 	justify="left" 	type="String"	default="KOEXKRSECLS" 	constraint=""				required="true"	match-key=""				description="발신은행BIC코드"/>
+		<field size="16" 	justify="left" 	type="String" 	default="" 						constraint=""				required="true"	match-key="TRADE_NO"	description="거래참조번호"/>
+		<field size="7" 		justify="left" 	type="String" 	default="" 						constraint=""				required="false"	match-key=""				description="작성자직번"/>
+		<field size="3" 		justify="left" 	type="String" 	default="" 						constraint=""				required="false"	match-key="CURRENCY"	description="통화기호"/>
+		<field size="18"		justify="left" 	type="double" 	default="" 						constraint="18,3"			required="false"	match-key="AMOUNT"		description="외신금액"/>
+		<field size="4" 		justify="right" 	type="length"	default="" 						constraint="0,0,y"			required="false"	match-key=""				description="전문길이"/>
+	</fields>
+</layout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!--upload.properties.xml property -->
+<properties>
+	<!-- jgen 템플릿 파일 업로드 경로  -->
+	<Property key="TEMPLATE_UPLOAD_URL_PATH" value="/upload" desc="upload된 파일의 상대 경로" />
+	<Property key="TEMPLATE_UPLOAD_ABSOLUTE_PATH" value="/JGen/web/upload" desc="upload할 물리적인 경로" />
+
+	<!-- 웹 애플리케이션 파일 업로드 경로  -->
+	<Property key="DEFAULT_UPLOAD_URL_PATH" value="/upload" desc="upload할 물리적인 경로" />	
+	<Property key="DEFAULT_UPLOAD_ABSOLUTE_PATH" value="c:/temp/upload" desc="upload할 물리적인 경로" />	
+</properties>

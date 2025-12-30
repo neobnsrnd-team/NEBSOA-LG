@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!--uuid.properties.xml property -->
+<properties>
+	<Property key="대량이체.UID_SQL" 
+		 value="SELECT nvl(max(SEQ)+1,1) AS UUID FROM poc_mtransfer" 
+		 desc="대량이체 일련번호 UID_SQL" />
+</properties>

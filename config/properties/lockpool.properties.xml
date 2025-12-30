@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!--lockpool.properties.xml property -->
+<properties>
+	<Property key="BIZ@test" 
+		 value="1" 
+		 desc="test Biz class 호출 시 허용되는  max active pool size" />	
+	<Property key="ORG@SEARCH" 
+		 value="1" 
+		 desc="기관전문 호출 시 허용되는  max active pool size" />
+</properties>

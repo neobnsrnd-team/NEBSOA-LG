@@ -1,0 +1,391 @@
+#set($layout = $root.getRootElement())
+#set($description = $layout.getChild("description").getText())
+#set($package = $layout.getChild("package").getText())
+#set($class = $layout.getChild("class").getText())
+#set($fieldsRoot = $layout.getChild("fields"))
+#set($fields = $fieldsRoot.getChildren("field"))
+#set($tailValue = $layout.getChild("tail").getAttribute("value").getValue())
+#set($tailSize = $layout.getChild("tail").getAttribute("size").getValue())
+#set($errorOrder = $layout.getChild("error").getAttribute("codeOrder").getValue())
+#set($successCode = $layout.getChild("error").getAttribute("successCode").getValue())
+#set($errorMessageOrder = $layout.getChild("error").getAttribute("messageOrder").getValue())
+/*******************************************************************
+ * ��ȯ����  ����  ������Ʈ
+ *
+ * Copyright (c) 2003-2004 by Serverside, Inc.
+ * All rights reserved.
+ *******************************************************************
+ * $Id$
+ * 
+ * $Log$
+ * Revision 1.1  2006/06/29 04:01:55  ������
+ * *** empty log message ***
+ *
+ *******************************************************************/
+
+package test.spiderlink.message;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import spider.common.util.FormatUtil;
+import spider.common.util.StringUtil;
+import spider.common.util.DataMap;
+import test.spiderlink.message.*;
+
+/**
+ * <p>Title : ${package}.${class}</p>
+ * <p>Created Date & Time : ${date}</p>
+ * <p>Description : ${description}</p>
+ * <p>Copyright : (c) 2003-2004 by COMAS, Inc.</p>
+ * <p>Company : Serverside, Inc.</p>
+ * @author Jongwon Lee (e-mail : serverside@empal.com)
+ * @version 1.0
+ */
+public class ${class} extends MessageBase {    
+#foreach($field in $fields)
+#set($fieldDescription = $field.getAttribute("description").getValue())
+#set($fieldSize = $field.getAttribute("size").getValue())
+#set($fieldJustify = $field.getAttribute("justify").getValue())
+#set($fieldType = $field.getAttribute("type").getValue())
+#set($fieldDefault = $field.getAttribute("default").getValue())
+#set($fieldFormat = $field.getAttribute("constraint").getValue())
+    
+	/** ${fieldDescription} [size : ${fieldSize}, layout order number : $velocityCount] */
+	private #findFieldType(${fieldType}) field${velocityCount}#selectDefaultValue(${fieldType} ${fieldDefault} ${fieldFormat} ${fieldSize});
+#end
+	
+	DataMap map;
+	
+	/**
+	 * ${class} �� �⺻ ������
+	 */
+	public ${class}() {
+	}//end of constructor
+    
+
+	/**
+	 * ���������� ��ü ����ȭ �۾��� �����մϴ�.
+	 * 
+	 * @return ��ü�� ����ȭ �� byte []
+	 * @see test.spiderlink.message.Serializable#marshall()
+	 */
+	public byte [] marshall()  {
+		if (this.data == null) {
+			this.data = HeaderConstants.EMPTY_BYTE_ARRAY;
+		}//end if
+		
+		byte [] marshalledData = new byte[$totalFieldSize + this.data.length];
+		
+		int index = 0;
+	    
+#foreach($field in $fields)
+#set($fieldDescription = $field.getAttribute("description").getValue())
+#set($fieldSize = $field.getAttribute("size").getValue())
+#set($fieldJustify = $field.getAttribute("justify").getValue())
+#set($fieldType = $field.getAttribute("type").getValue())
+#set($fieldFormat = $field.getAttribute("constraint").getValue())
+#appendData($fieldType $fieldSize $fieldJustify $fieldFormat $class $fields $tailExist $tailSize $velocityCount)
+#end
+    
+		System.arraycopy(this.data, 0, marshalledData, index, this.data.length);
+		
+		this.header = new String(marshalledData, 0, $headerSize);
+		
+#if($tailExist == true)
+		marshalledData[marshalledData.length - 1] = $tailValue;
+#end		
+		return marshalledData;
+	}//end of marshall()
+
+	/**
+	 * �������� ��ü���� ������ȭ �۾��� �����մϴ�.
+	 * 
+	 * @param marshalledData ��ü�� ����ȭ �� byte []
+	 * @see com.keb.stpa.engine.msg.Serializable#unmarshall(byte[])
+	 */
+	public void unmarshall(byte [] marshalledData) throws Exception{
+		if (marshalledData == null) {
+			throw new Exception("Unmarshall �Ϸ��� �����Ͱ� null �Դϴ�.");
+		} else if ($totalFieldSize > marshalledData.length) {
+			throw new Exception("Unmarshall �Ϸ��� �������� ����[" + marshalledData.length + " bytes]�� ${totalFieldSize} bytes �̻��̾�� �մϴ�.");
+		}//end if else
+	    
+		this.header = new String(marshalledData, 0, $headerSize);
+	
+		int index = 0;
+		StringBuffer buffer = new StringBuffer();
+		
+		try {
+			
+#foreach($field in $fields)
+#set($fieldDescription = $field.getAttribute("description").getValue())
+#set($fieldSize = $field.getAttribute("size").getValue())
+#set($fieldJustify = $field.getAttribute("justify").getValue())
+#set($fieldType = $field.getAttribute("type").getValue())
+#set($fieldFormat = $field.getAttribute("constraint").getValue())
+#parseData($fieldType $fieldSize $fieldFormat $velocityCount)
+#end
+
+		} catch (NumberFormatException e) {
+			throw new Exception("�����Ͱ� ���� ���˿� ���� �ʽ��ϴ�. [" + index + "��° index �� Numeric field �Դϴ�.]");
+		} catch (Exception e) {
+			throw new Exception("�����Ͱ� ���� ���˿� ���� �ʽ��ϴ�. [" + index + "��° index �� ���� �Դϴ�.]");
+		}//end try catch
+
+#if($tailExist == true)
+		int bdl = marshalledData.length - index - $tailSize;
+		byte [] bData = new byte[bdl];
+		System.arraycopy(marshalledData, index, bData, 0, bdl);
+		this.data = bData;
+#else
+		int bdl = marshalledData.length - index;
+		byte [] bData = new byte[bdl];
+		System.arraycopy(marshalledData, index, bData, 0, bdl);
+		this.data = bData;
+#end
+		// ������ valid ���� Ȯ���մϴ�. (�ʼ��׸��� ����)
+		// invalid �� ������ ���, InvalidMessageException �� throw �մϴ�.
+		valid();
+#if($containMK == "true")
+		putDataMap();
+#end
+	}//end of unmarshall()
+	
+	/**
+	 * �������κ��� �ʿ��� �����͸� map�� ���� �մϴ�.
+	 * 
+	 */
+	private void putDataMap() {
+		this.map = new DataMap();
+#foreach($field in $fields)
+#set($fieldDescription = $field.getAttribute("description").getValue())
+#set($fieldSize = $field.getAttribute("size").getValue())
+#set($fieldJustify = $field.getAttribute("justify").getValue())
+#set($fieldType = $field.getAttribute("type").getValue())
+#set($matchKey = $field.getAttribute("match-key").getValue())
+#if(${matchKey.length()} != 0)
+		this.map.put("${matchKey}", #selectVoHeader($fieldType $velocityCount));
+#end
+#end
+	}//end 
+    
+#foreach($field in $fields)
+#set($fieldDescription = $field.getAttribute("description").getValue())
+#set($fieldSize = $field.getAttribute("size").getValue())
+#set($fieldJustify = $field.getAttribute("justify").getValue())
+#set($fieldType = $field.getAttribute("type").getValue())
+	/**
+	 * ${fieldDescription} ��(��) �����մϴ�.
+	 * [size : ${fieldSize}, layout order number : $velocityCount]
+	 *
+	 * @return ${fieldDescription}
+	 */
+	public #findFieldType($fieldType) getField${velocityCount}() {
+		return this.field${velocityCount};
+	}//end of getField${velocityCount}()
+    
+	/**
+	 * ${fieldDescription} ��(��) �����մϴ�.
+	 * [size : ${fieldSize}, layout order number : $velocityCount]
+	 *
+	 * @param field${velocityCount} ${fieldDescription}
+	 */
+	public void setField${velocityCount}(#findFieldType($fieldType) field${velocityCount}) {
+		this.field${velocityCount} = field${velocityCount};
+	}//end of setField${velocityCount}()
+    
+#end
+
+	/**
+	 * DataMap �� �����մϴ�.
+	 *
+	 * @return vo
+	 */
+	public DataMap getDataMap() {
+		return this.map;
+	}
+    
+	/**
+	 * ${package}.${class} �� ������Ƽ ����
+	 * ������ ������ ���ڿ��� ��ȯ�Ͽ� �����մϴ�.
+	 * 
+	 * @return ������Ƽ�� ������ �����ϴ� ���ڿ�
+	 * @see java.lang.Object#toString()
+	 */
+	public String toString() {
+		StringBuffer buffer = new StringBuffer();
+
+		buffer.append("===== ${class}.toString() start =====\n");
+#set($fieldCount = 0)
+#foreach($field in $fields)
+#set($fieldCount = $fieldCount + 1)
+#end
+#foreach($field in $fields)
+#set($fieldDescription = $field.getAttribute("description").getValue())
+#set($fieldSize = $field.getAttribute("size").getValue())
+#set($fieldJustify = $field.getAttribute("justify").getValue())
+#set($fieldType = $field.getAttribute("type").getValue())
+		buffer.append("${fieldDescription}").append("=[").append(this.field${velocityCount}).append("]");
+		buffer.append("\n");
+#end
+		buffer.append("data").append("=[").append((this.data == null) ? "" : new String(this.data)).append("]");
+		buffer.append("\n===== ${class}.toString() end =====");
+		
+		return buffer.toString();
+	}//end of toString()
+	
+	/**
+	 * ������ ���� ������ �����ϴ� ���� Ŭ����
+	 * 
+	 */
+	public static class ${class}Info {
+	
+		/** ������ �ʵ� ������ ���� ������ ������ �ִ� List */
+		public static final List INFO_LIST;
+		
+		static {
+			List tempList = new ArrayList();
+#foreach($field in $fields)
+#set($fieldSize = $field.getAttribute("size").getValue())
+#set($fieldType = $field.getAttribute("type").getValue())
+#set($fieldFormat = $field.getAttribute("constraint").getValue())
+#if($fieldType == "double" || $fieldType == "float")
+			tempList.add(Integer.valueOf(#sizeCP($fieldFormat)));
+#else
+			tempList.add(Integer.valueOf($fieldSize));
+#end
+#end
+			
+			// �Һ� ����Ʈ�� ����ϴ�.
+			INFO_LIST = Collections.unmodifiableList(tempList);
+		}//end of static
+		
+		/**
+		 * ������ �� ���̸� �����մϴ�.
+		 * 
+		 * @return ������ �� ����
+		 */
+		public static final int getTotalSize() {
+			return $totalFieldSize;
+		}//end of getTotalSize()
+		
+		/**
+		 * ���� �ε������� ���� �ε��� ������ ���� ���̸� �����մϴ�.
+		 *
+		 * @param startIndex ���� �ε���
+		 * @param endIndex ���� �ε���
+		 * @return ���� �ε������� ���� �ε��� ������ ���� ����
+		 */
+		public static final int getSize(int startIndex, int endIndex) {
+			int strIdx = startIndex - 1;
+			int size = 0;
+			for (int i = strIdx; i < endIndex; i++) {
+				size += ((Integer)INFO_LIST.get(i)).intValue();
+			}//end for
+			return size;
+		}//end of getSize()
+		
+		/**
+		 * ���� �ε������� ������ �ʵ� ������ ���� ���̸� �����մϴ�.
+		 *
+		 * @param startIndex ���� �ε���
+		 * @return ���� �ε������� ������ �ʵ� ������ ���� ����
+		 */
+		public static final int getSize(int startIndex) {
+			return getSize(startIndex, INFO_LIST.size());
+		}//end of getSize()
+		
+		/**
+		 * ������ Ư�� �ʵ��� ���� ���̸� �����մϴ�.
+		 *
+		 * @param fieldName ���� �ʵ��
+		 * @return Ư�� �ʵ��� ���� ����
+		 */
+		public static final int getFieldSize(int field) {
+			Integer fieldSize = (Integer)INFO_LIST.get(field);
+			return fieldSize.intValue();
+		}//end of getSize()
+		
+	}//end of static-inner-class ${class}Info
+	
+	/** 
+	 * ���� ���� �����Ͱ� �������� �����մϴ�.
+	 * 
+	 * @return ���� ����
+	 * @see com.keb.stpa.engine.msg.MessageBase#isError()
+	 */
+	public boolean isError() {
+		return !"${successCode}".equals(this.field${errorOrder});
+	}//end of isError()
+
+	/** 
+	 * ���� ���� �������� �����ڵ带 �����մϴ�.
+	 * 
+	 * @return ���� �ڵ�
+	 * @see com.keb.stpa.engine.msg.MessageBase#getErrorCode()
+	 */
+	public String getErrorCode() {
+		return this.field${errorOrder};
+	}//end of getErrorCode()
+
+	/** 
+	 * ���� ���� �������� ���� �޽����� �����մϴ�.
+	 * 
+	 * @return ���� �޽���
+	 * @see com.keb.stpa.engine.msg.MessageBase#getErrorReason()
+	 */
+	public String getErrorReason() {
+#if($errorMessageOrder != "")
+		return this.field${errorMessageOrder};
+#else
+		return super.getErrorReason("${package}.${class}", this.field${errorOrder});
+#end		
+	}//end of getErrorReason()
+	
+	/**
+	 * ��� source �� Ư�� �ʵ带 �־��� �����ͷ� ��ü�մϴ�.
+	 * 
+	 * @param source byte []  ������ EAIMessage ������
+	 * @param order �־��� �����ͷ� ��ü�Ϸ��� �ʵ��� ����
+	 * @param replaceData ��ü�Ϸ��� ������
+	 * @return �־��� �����ͷ� ��ü�� source
+	 */
+	public static byte [] setSpecificField(byte [] source, int order, byte [] replaceData) {
+		System.arraycopy(replaceData, 0, source, ${class}Info.getSize(1, order - 1), replaceData.length);
+		return source;
+	}//end of setSpecificField()
+	
+	/**
+	 * �־��� ������ valid ���θ� üũ�մϴ�.
+	 * 
+	 * @throws InvalidMessageException �־��� ������ �ʼ� �׸��� �ʵ���� ���õǾ� ���� ���� ��� �߻��ϴ� RuntimeException
+	 * @see com.keb.stpa.engine.msg.MessageBase#valid()
+	 */
+	public void valid() {    
+#foreach($field in $fields)
+#set($fieldDescription = $field.getAttribute("description").getValue())
+#set($fieldSize = $field.getAttribute("size").getValue())
+#set($fieldJustify = $field.getAttribute("justify").getValue())
+#set($fieldType = $field.getAttribute("type").getValue())
+#set($fieldDefault = $field.getAttribute("default").getValue())
+#set($fieldFormat = $field.getAttribute("constraint").getValue())
+#set($fieldRequired = $field.getAttribute("required").getValue())
+#if($fieldRequired == "true" && ($fieldType == "String" || $fieldType == "date"))
+		if (null == this.field${velocityCount} || 0 == this.field${velocityCount}.trim().length()) {
+			throw new InvalidMessageException(${velocityCount}, this.field${velocityCount}, "${fieldDescription}[size:${fieldSize},order:$velocityCount]���� �����ϴ�.");
+		}//end if
+#end
+#end
+	}//end of valid()
+    
+	/**
+	 * �׽�Ʈ �ڵ带 �����ϴ� �޼ҵ� �Դϴ�.
+	 * 
+	 * @param args �׽�Ʈ�� �ʿ��� ���� ����
+	 */
+	public static void main(String [] args) {
+	}//end of main()
+    
+}// end of ${class}.java

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<cache>
+     <!-- 언어코드  -->
+     <!-- 
+     <module name="LOCALE_CODE" sql="SELECT CODE, CODE_NAME FROM FWK_CODE WHERE CODE_GROUP_ID='20001'"/>
+     -->
+ </cache>

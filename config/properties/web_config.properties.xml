@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!--web_config.properties.xml property -->
+<properties>
+    <Property key="spiderAdmin.IS_ADMIN_SITE" 
+		 value="true" 
+		 desc="관리자 사이트 인지 여부" />
+	<Property key="Authenticator.class" 
+		 value="" 
+		 desc="최적화 된 로그인 모듈을 구현한 클래스 명" />
+	<Property key="Authorizer.class" 
+		 value="" 
+		 desc="최적화 된 인증 모듈을 구현한 클래스 명" />
+	<Property key="ibs.Authenticator.class" 
+		 value="keb.ibs.poc.login.web.Authenticator" 
+		 desc="최적화 된 로그인 모듈을 구현한 클래스 명" />
+	<Property key="ibs.Authorizer.class" 
+		 value="keb.ibs.poc.login.web.Authorizer"
+		 desc="최적화 된 인증 모듈을 구현한 클래스 명" />
+	<Property key="CSS.STYLE" 
+		 value="blue" 
+		 desc="사이트 스타일 (orange,blue,purple,green,bluegreen중 택)" />
+	<Property key="ERROR_INFO_PAGE" 
+		 value="/jsp/error_info.jsp" 
+		 desc="에러 메세지를 출력할 페이지" />
+	<Property key="LOGIN.QUERY" 
+		 value="SELECT USER_ID, USER_NAME, PASSWORD FROM FWK_USER WHERE USER_ID = ?" 
+		 desc="login query" />
+	<Property key="ROLE_CHECK.QUERY" 
+		 value="SELECT AUTH_CODE FROM FWK_USER_MENU WHERE USER_ID = ? AND MENU_ID = ?" 
+		 desc="권한 체크 하는 query" />	
+	<Property key="ROLE_CHECK_PAGE_LIST.QUERY" 
+		 value="SELECT MENU_URL FROM MENU WHERE USE_YN='Y'" 
+		 desc="권한 체크 대상 페이지를 조회하는 query" />
+	<Property key="ADMIN.ROLE.QUERY" 
+		 value="SELECT A.AUTH_CODE FROM FWK_USER_MENU A , FWK_MENU B WHERE A.MENU_ID = B.MENU_ID AND A.USER_ID = ? AND B.MENU_URL = ? "
+		 desc="ADMIN 권한 체크 하는 query" />	
+	<Property key="MAX_FILE_UPLOAD_SIZE" 
+		 value="10M" 
+		 desc="MAX_FILE_UPLOAD_SIZE" />			 		 	 
+	<Property key="SESSION.MONITOR.MODE" 
+		 value="ON" 
+		 desc="세션 모니터링을 사용할 지 여부" />
+	<Property key="LOGIN.SESSION.BIND.NAME" 
+		 value="USER_INFO" 
+		 desc="LOGIN한 사용자 정보를 세션에 담을 때 사용되는 KEY 값" />
+	<Property key="LOGIN.SESSION.TIMEOUT" 
+		 value="30" 
+		 desc="LOGIN한 사용자의 세션 타임아웃 시간(분)" />
+	<Property key="LOGIN_PAGE" 
+		 value="/jsp/main.jsp" 
+		 desc="login form 화면" />
+    <Property key="KEB_LOGIN_PAGE" 
+		 value="/jsp/login/login.jsp" 
+		 desc="KEB 기존 로그인 화면" />
+	<Property key="MENU.ROOT_MENU_ID" 
+		 value="*" 
+		 desc="최상위 메뉴의 id" />
+	<Property key="MENU.NOT_NULL" 
+		 value="NAN" 
+		 desc="메뉴테이블의 URL이 없을때 셋팅되는 값" />	 
+	<Property key="ROLE.ROOT_ROLE_ID" 
+		 value="001001" 
+		 desc="최상위 권한 ID " />	 
+	<Property key="PASSWORD_CHANGED_TERM" 
+		 value="45" 
+		 desc="패스워드 주기" />
+	<Property key="URL.MAPPING.USE" 
+		 value="TRUE" 
+		 desc="맵핑 테이블 사용여부" />
+	<Property key="spiderAdmin.USE_URL_MAPPER" 
+		 value="false" 
+		 desc="맵핑 테이블 사용여부" />		 		 
+	<Property key="spiderAdmin.URL.MAPPING.PREFIX" 
+		 value="" 
+		 desc="요청URL과 해당 요청을 처리 할 class를 맵핑 시킬 때 사용할 Prefix" />
+	<Property key="spiderAdmin.URL.MAPPING.SUFFIX" 
+		 value="Command" 
+		 desc="요청URL과 해당 요청을 처리 할 class를 맵핑 시킬 때 사용할 Suffix" />
+	<Property key="ibs.USE_URL_MAPPER" 
+		 value="false" 
+		 desc="맵핑 테이블 사용여부" />	
+	<Property key="ibs.URL.MAPPING.PREFIX" 
+		 value="" 
+		 desc="요청URL과 해당 요청을 처리 할 class를 맵핑 시킬 때 사용할 Prefix" />
+	<Property key="ibs.URL.MAPPING.SUFFIX" 
+		 value="A" 
+		 desc="요청URL과 해당 요청을 처리 할 class를 맵핑 시킬 때 사용할 Suffix" />
+		 
+	<Property key="PAGE.BEGIN.IMAGE" 
+		 value="/images/icon/begin.gif" 
+		 desc="페이징 시 사용되는 BEGIN 이미지 파일" />
+	<Property key="PAGE.END.IMAGE" 
+		 value="/images/icon/end.gif" 
+		 desc="페이징 시 사용되는 END 이미지 파일" />
+	<Property key="PAGE.PREV.IMAGE" 
+		 value="/images/icon/prev.gif" 
+		 desc="페이징 시 사용되는 PREV 이미지 파일" />
+	<Property key="PAGE.NEXT.IMAGE" 
+		 value="/images/icon/next.gif" 
+		 desc="페이징 시 사용되는 NEXT 이미지 파일" />
+	<Property key="PAGING.CLASS"
+		 value="KebPageNavigator"
+		 desc="사용할 페이지 네비게이터 클래스" />
+		 
+	<Property key="ADMIN_CONTEXT"
+		 value="spiderAdmin/"
+		 desc="관리자 어플리케이션 Context 명" />
+	<Property key="SERVICE.HALTING"
+		 value="OFF"
+		 desc="서비스 중지여부" />
+		 
+	<Property key="chart.create.dir"
+		 value="${APP_HOME}/frontweb/report/chart"
+		 desc="chart를 생성할 임시 디렉토리(절대경로)" />	
+	<Property key="chart.create.dir.url" 
+		 value="/report/chart/" 
+		 desc="웹에서 링크된 chart url주소(상대경로)" />		 
+	<Property key="report.create.dir.url"
+		 value="/report"
+		 desc="pdf report가 생성되는 임시 directory의 url" />	
+		 
+	<Property key="SAFETY_VERIFY_YN" 
+		 value="true" 
+		 desc="안전카드 검증을  할 것인지 여부 개발시에는 TRUE로 세팅하고 테스트시에는 FALSE로 세팅한다" />		 
+	<Property key="SECURE_VERIFY_YN" 
+		 value="true" 
+		 desc="전자서명 검증을  할 것인지 여부 개발시에는 TRUE로 세팅하고 테스트시에는 FALSE로 세팅한다" />		 		 		 	 
+		 
+	<Property key="BIZ.USE_DB_MAPPING" 
+		 value="false" 
+		 desc="Biz ID와 Biz class를 맵핑 시킬 때 DB에 등록된 것을 사용할 것인지 여부 -default값은 true이다."  />
+	<Property key="BIZ.MAPPING.PREFIX" 
+		 value="" 
+		 desc="Biz ID와 Biz class를 맵핑 시킬 때 사용할 Prefix" />
+	<Property key="BIZ.MAPPING.SUFFIX" 
+		 value="" 
+		 desc="Biz ID와 Biz class를 맵핑 시킬 때 사용할 Suffix" />
+	<Property  key="ENCODING_YN"
+	 value="false"
+	 desc="request.setCharacterEncoding(EUC-KR) 여부" />
+	 	
+    <Property  key="DEFAULT_SERVICE_ACTION"
+     value="spider.web.service.DefaultServiceAction"
+     desc="서비스 호출 시 기본으로 호출되는 Action 클래스" />
+    <Property  key="SERVICE_URL_EXTENSION"
+     value="svc"
+     desc="서비스 호출 확장자" />
+</properties>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<javascript>
+
+	<js script_id="PSN" script_desc="주민번호 체크 로직" event_init_code="" maskform="######-#######" chartype="onlynum" maximum="" minimum="" on_submit_code="validatePsn(psnno)" register="" reg_date="20060511" validate_class=""></js>
+	<js script_id="CRN" script_desc="사업자번호 체크 로직" event_init_code="" maskform="###-##-######" chartype="onlynum" maximum="" minimum="" on_submit_code="validateCrn(crn)" register="" reg_date="20060511" validate_class=""></js>
+	<js script_id="EMAIL" script_desc="email 체크" event_init_code="" maskform="" chartype="" maximum="" minimum="" on_submit_code="validateEmail(varemail)" register="" reg_date="20060511" validate_class=""></js>
+	<js script_id="DATE" script_desc="date 타입 제어" event_init_code="" maskform="####-##-##" chartype="onlynum" maximum="" minimum="" on_submit_code="validateDate8(cDate)" register="" reg_date="20060511" validate_class=""></js>
+	<js script_id="KEB_ACCOUNT" script_desc="외환은행 계좌번호" event_init_code="" maskform="###-######-###" chartype="onlynum" maximum="" minimum="" on_submit_code="validateKebAccount(acc)" register="" reg_date="20060515" validate_class=""></js>
+	<js script_id="KEB_ACCOUNT_PASS" script_desc="외환은행 계좌 비밀 번호" event_init_code="" maskform="" chartype="onlynum" maximum="" minimum="" on_submit_code="validateKebAccountPassword(pass)" register="" reg_date="20060515" validate_class=""></js>
+	<js script_id="MONEY" script_desc="금액 타입" event_init_code="" maskform="" chartype="bmoney" maximum="" minimum="" on_submit_code="validateEmail(varemail)" register="" reg_date="20060515" validate_class=""></js>
+	<js script_id="FLOAT_MONEY" script_desc="FLOAT 금액 타입" event_init_code="" maskform="" chartype="floatmoney" maximum="" minimum="" on_submit_code="validateDate8(cDate)" register="" reg_date="20060518" validate_class=""></js>
+</javascript>

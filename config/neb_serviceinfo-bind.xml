@@ -1,0 +1,62 @@
+<binding>
+	<mapping name="message" class="nebsoa.jgen.service.ServiceProjectInfo">
+		<value style="attribute" name="author" field="author"/>
+		<value style="attribute" name="email" field="email"/>
+		<value style="attribute" name="ver" field="ver"/>
+		<value style="attribute" name="write_date" field="writeDate"/>
+		<structure field="messageModule" type="nebsoa.jgen.service.ServiceModuleInfo"/>
+	</mapping>
+	<mapping name="messageModule" class="nebsoa.jgen.service.ServiceModuleInfo">
+		<value style="attribute" name="package" field="packageName"/>		
+		<value style="attribute" name="input_class" field="inputClassName"/>				
+		<value style="attribute" name="output_class" field="outputClassName"/>
+		<value style="attribute" name="service_id" field="serviceId"/>
+		<value style="attribute" name="file_name" field="fileName"/>		
+		<value style="attribute" name="generate_module" field="generateModule"/>
+		<value style="element" name="description" field="description"/>
+		<structure field="inputMessage" type="nebsoa.jgen.service.ServiceInputInfo"/>
+		<structure field="outputMessage" type="nebsoa.jgen.service.ServiceOutputInfo"/>
+	</mapping>
+	<mapping name="inputMessage" class="nebsoa.jgen.service.ServiceInputInfo">
+		<value style="attribute" name="input_message_id" field="inputMessageId"/>
+		<value style="attribute" name="input_message_name" field="inputMessageName"/>
+		<collection field="inputMessageField" item-type="nebsoa.jgen.service.ServiceInputFieldInfo"/>
+	</mapping>
+	<mapping name="outputMessage" class="nebsoa.jgen.service.ServiceOutputInfo">
+		<value style="attribute" name="output_message_id" field="outputMessageId"/>
+		<value style="attribute" name="output_message_name" field="outputMessageName"/>
+		<collection field="outputMessageField" item-type="nebsoa.jgen.service.ServiceOutputFieldInfo"/>
+	</mapping>
+	<mapping name="inputMessageField" class="nebsoa.jgen.service.ServiceInputFieldInfo">
+		<value style="attribute" name="field_id" field="fieldId"/>
+		<value style="attribute" name="field_name" field="fieldName"/>
+		<value style="attribute" name="data_type" field="dataType"/>
+		<value style="attribute" name="size" field="size"/>
+		<value style="attribute" name="input_type" field="inputType"/>
+		<value style="attribute" name="input_value" field="inputValue"/>
+		<value style="attribute" name="nullable" field="nullable"/>
+		<value style="attribute" name="use_colspan" field="useColspan"/>	
+		<value style="attribute" name="endTable" field="endTable"/>			
+		<value style="attribute" name="data_domain" field="dataDomain"/>
+		<value style="attribute" name="field_domain_id" field="fieldDomainId"/>
+		<value style="attribute" name="desc" field="desc"/>
+		<value style="attribute" name="pk" field="isPk"/>
+		<collection field="inoptions" item-type="nebsoa.jgen.service.OptionInfo"/>
+	</mapping>
+	<mapping name="outputMessageField" class="nebsoa.jgen.service.ServiceOutputFieldInfo">
+		<value style="attribute" name="field_id" field="fieldId"/>
+		<value style="attribute" name="field_name" field="fieldName"/>
+		<value style="attribute" name="data_type" field="dataType"/>
+		<value style="attribute" name="size" field="size"/>
+		<value style="attribute" name="code_mapping" field="codeMapping"/>
+		<value style="attribute" name="use_colspan" field="useColspan"/>
+		<value style="attribute" name="endTable" field="endTable"/>			
+		<value style="attribute" name="multi_language" field="multiLang"/>
+		<value style="attribute" name="data_domain" field="dataDomain"/>
+		<value style="attribute" name="pk" field="isPk"/>
+	</mapping>
+	<mapping name="inoptions" class="nebsoa.jgen.service.OptionInfo">
+		<value style="attribute" name="value" field="value"/>
+		<value style="attribute" name="display" field="display"/>
+	</mapping>
+</binding>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<layout>
+	<description>외신계에 송수신하기 위한 헤더 (incomming)</description>
+	<package>com.keb.stpa.engine.msg</package>
+	<class>EFI002Message</class>
+
+	<fields>
+		<field size="4" 		justify="left" 	type="String"	default="" 	constraint=""				match-key=""	description="처리구분"/>
+		<field size="60" 	justify="left" 	type="String"	default="" 	constraint=""				match-key=""	description="리턴메시지"/>
+		<field size="18" 	justify="left" 	type="String" 	default="" 	constraint=""				match-key=""	description="외신전문번호"/>
+		<field size="8" 		justify="left" 	type="date" 	default="" 	constraint="yyyyMMdd"	match-key=""	description="외신처리일"/>
+		<field size="3" 		justify="left" 	type="String" 	default="" 	constraint=""				match-key=""	description="전문타입"/>
+		<field size="11" 	justify="left" 	type="String" 	default="" 	constraint=""				match-key=""	description="상대은행BIC코드"/>
+		<field size="11" 	justify="left" 	type="String"	default="" 	constraint=""				match-key=""	description="발신은행BIC코드"/>
+		<field size="16" 	justify="left" 	type="String" 	default="" 	constraint=""				match-key=""	description="거래참조번호"/>
+		<field size="3"		justify="left" 	type="String" 	default="" 	constraint=""				match-key=""	description="통화기호"/>
+		<field size="15" 	justify="left" 	type="double" 	default="" 	constraint="15,3"			match-key=""	description="외신금액"/>
+		<field size="4" 		justify="right" 	type="length"	default="" 	constraint="1,*,y"			match-key=""	description="전문길이"/>
+	</fields>
+</layout>

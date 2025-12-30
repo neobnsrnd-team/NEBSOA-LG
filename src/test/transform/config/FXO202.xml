@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<layout>
+	<description>외국환에서 원화 서비스를 위한 202전문 송신 후 910수신(IN/OUT)</description>
+	<package>com.keb.stpa.engine.msg</package>
+	<class>FXO202Message</class>
+	<error codeOrder="5" successCode="0" messageOrder="7"/>
+	<fields>
+		<field size='3' justify='left' type='String' required="true" default='202' constraint='' match-key='' description='전문구분' />
+		<field size='12' justify='left' type='String' required="true" default='' constraint='' match-key='' description='전문발신일시' />
+		<field size='20' justify='left' type='String' required="true" default='' constraint='' match-key='' description='발신전문번호' />
+		<field size='1' justify='left' type='String' required="true" default='0' constraint='' match-key='' description='재전송여부' />
+		<field size='1' justify='left' type='String' required="true" default='' constraint='' match-key='' description='Return Code' />
+		<field size='4' justify='left' type='String' required="false" default='' constraint='' match-key='' description='에러코드' />
+		<field size='60' justify='left' type='String' required="false" default='' constraint='' match-key='' description='에러명' />
+		<field size='11' justify='left' type='String' required="true" default='' constraint='' match-key='' description='발신은행' />
+		<field size='11' justify='left' type='String' required="true" default='' constraint='' match-key='' description='수신은행' />
+		<field size='8' justify='left' type='String' required="true" default='' constraint='' match-key='' description='Value일자' />
+		<field size='3' justify='left' type='String' required="true" default='' constraint='' match-key='' description='통화코드' />
+		<field size='18' justify='right' type='double' required="true" default='' constraint='18,3' match-key='' description='거래금액' />
+		<field size='16' justify='left' type='String' required="true" default='' constraint='' match-key='' description='타행REF' />
+		<field size='35' justify='left' type='String' required="true" default='' constraint='' match-key='' description='계좌번호' />
+		<field size='1' justify='left' type='String' required="false" default='' constraint='' match-key='' description='52TAG구분' />
+		<field size='35' justify='left' type='String' required="false" default='' constraint='' match-key='' description='지시은행' />
+		<field size='11' justify='left' type='String' required="false" default='' constraint='' match-key='' description='Intermediary' />
+		<field size='35' justify='left' type='String' required="false" default='' constraint='' match-key='' description='TAG72-1' />
+		<field size='35' justify='left' type='String' required="false" default='' constraint='' match-key='' description='TAG72-2' />
+		<field size='35' justify='left' type='String' required="false" default='' constraint='' match-key='' description='TAG72-3' />
+		<field size='35' justify='left' type='String' required="false" default='' constraint='' match-key='' description='TAG72-4' />
+		<field size='35' justify='left' type='String' required="false" default='' constraint='' match-key='' description='TAG72-5' />
+		<field size='35' justify='left' type='String' required="false" default='' constraint='' match-key='' description='TAG72-6' />
+		<field size='11' justify='left' type='String' required="true" default='' constraint='' match-key='' description='발신은행' />
+		<field size='11' justify='left' type='String' required="true" default='' constraint='' match-key='' description='수신은행' />
+		<field size='8' justify='left' type='String' required="true" default='' constraint='' match-key='' description='Value일자' />
+		<field size='3' justify='left' type='String' required="true" default='' constraint='' match-key='' description='통화코드' />
+		<field size='18' justify='right' type='double' required="true" default='' constraint='18,3' match-key='' description='거래금액' />
+		<field size='16' justify='left' type='String' required="true" default='' constraint='' match-key='' description='당행REF' />
+		<field size='16' justify='left' type='String' required="true" default='' constraint='' match-key='' description='타행REF' />
+		<field size='35' justify='left' type='String' required="true" default='' constraint='' match-key='' description='계좌번호' />
+		<field size='35' justify='left' type='String' required="false" default='' constraint='' match-key='' description='지시은행' />
+		<field size='11' justify='left' type='String' required="false" default='' constraint='' match-key='' description='Intermediary' />
+		<field size='16' justify='left' type='String' required="true" default='' constraint='' match-key='' description='외국환계좌번호' />
+		<field size='8' justify='left' type='String' required="true" default='' constraint='' match-key='' description='거래일' />
+		<field size='7' justify='left' type='String' required="true" default='' constraint='' match-key='' description='거래명세번호' />
+
+	</fields>
+</layout>

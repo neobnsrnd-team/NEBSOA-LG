@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="euc-kr" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration>
+
+	<!-- 콘솔 로그 -->
+	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%m%n"/>
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="DEBUG"/>
+            <param name="LevelMax" value="INFO"/>
+        </filter>
+	</appender>
+
+	<!-- DEBUG 로그 -->
+	<appender name="DEBUG" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="${SPIDER_LOG_HOME}/DEBUG_${SPIDER_INSTANCE_ID}"/>
+		<param name="DatePattern" value="'-'yyyy_MM_dd'.log'"/>
+		<param name="Append" value="true"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss}],%m%n"/>
+		</layout>
+	</appender>
+
+	<!-- 관리자 접근 로그 -->
+	<appender name="ADMIN_ACCESS" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="${SPIDER_LOG_HOME}/ADMIN_ACCESS_${SPIDER_INSTANCE_ID}"/>
+		<param name="DatePattern" value="'-'yyyy_MM_dd'.log'"/>
+		<param name="Append" value="true"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%m%n"/>
+		</layout>
+	</appender>
+
+	<!-- 모니터링 로그 -->
+	<appender name="MONITOR" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="${SPIDER_LOG_HOME}/MONITOR_${SPIDER_INSTANCE_ID}"/>
+		<param name="DatePattern" value="'-'yyyy_MM_dd'.log'"/>
+		<param name="Append" value="true"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss}],%m%n"/>
+		</layout>
+	</appender>
+
+	<appender name="THREAD_MONITOR" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="${NEBSOA_LOG_HOME}/MONITOR"/>
+		<param name="DatePattern" value="'-'yyyy_MM_dd'.log'"/>
+		<param name="Append" value="true"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss}],%m[%t]%n"/>
+		</layout>
+	</appender>
+
+	<!-- DB ERROR 로그 -->
+	<appender name="DB_ERROR" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="${SPIDER_LOG_HOME}/DB_ERROR_${SPIDER_INSTANCE_ID}"/>
+		<param name="DatePattern" value="'-'yyyy_MM_dd'.log'"/>
+		<param name="Append" value="true"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss}],%m%n"/>
+		</layout>
+	</appender>
+
+	<!-- ERROR 로그 -->
+	<appender name="ERROR" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="${SPIDER_LOG_HOME}/ERROR_${SPIDER_INSTANCE_ID}"/>
+		<param name="DatePattern" value="'-'yyyy_MM_dd'.log'"/>
+		<param name="Append" value="true"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss}],%m%n"/>
+		</layout>
+	</appender>
+
+	<!-- 전문 처리 로그 -->
+	<appender name="MESSAGE" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="${SPIDER_LOG_HOME}/MESSAGE_${SPIDER_INSTANCE_ID}"/>
+		<param name="DatePattern" value="'-'yyyy_MM_dd_HH'.log'"/>
+		<param name="Append" value="true"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%m%n"/>
+		</layout>
+	</appender>
+
+	<!-- 전문 처리 에러 로그 -->
+	<appender name="MSG_ERROR" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="${SPIDER_LOG_HOME}/MSG_ERROR_${SPIDER_INSTANCE_ID}"/>
+		<param name="DatePattern" value="'-'yyyy_MM_dd'.log'"/>
+		<param name="Append" value="true"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%m%n"/>
+		</layout>
+	</appender>
+
+	<!-- 사용자 웹 ACCESS 로그 -->
+	<appender name="USER_ACCESS" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="${SPIDER_LOG_HOME}/USER_ACCESS_${SPIDER_INSTANCE_ID}"/>
+		<param name="DatePattern" value="'-'yyyy_MM_dd_HH'.log'"/>
+		<param name="Append" value="true"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%m%n"/>
+		</layout>
+	</appender>
+
+	<!-- 쿼리 로그 -->
+	<appender name="SQL" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="${SPIDER_LOG_HOME}/SQL_${SPIDER_INSTANCE_ID}"/>
+		<param name="DatePattern" value="'-'yyyy_MM_dd_HH'.log'"/>
+		<param name="Append" value="true"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss}],%m%n"/>
+		</layout>
+	</appender>
+
+	<!-- 전자서명 로그 -->
+	<appender name="SECURE_SIGN" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="${SPIDER_LOG_HOME}/SECURE_SIGN_${SPIDER_INSTANCE_ID}"/>
+		<param name="DatePattern" value="'-'yyyy_MM_dd'.log'"/>
+		<param name="Append" value="true"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%m%n"/>
+		</layout>
+	</appender>
+
+	<!-- 메일 발송 로그 -->
+	<appender name="EMAIL" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="${SPIDER_LOG_HOME}/EMAIL_${SPIDER_INSTANCE_ID}"/>
+		<param name="DatePattern" value="'-'yyyy_MM_dd'.log'"/>
+		<param name="Append" value="true"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss SSS}],%m%n"/>
+		</layout>
+	</appender>
+
+	<!-- 배치 로그 -->
+	<appender name="BATCH" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="${SPIDER_LOG_HOME}/BATCH_${SPIDER_INSTANCE_ID}"/>
+		<param name="DatePattern" value="'-'yyyy_MM_dd'.log'"/>
+		<param name="Append" value="true"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss SSS}]%m%n"/>
+		</layout>
+	</appender>
+
+	<!-- Standalone app -->
+	<appender name="DAEMON" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="${SPIDER_LOG_HOME}/DAEMON_${SPIDER_INSTANCE_ID}"/>
+		<param name="DatePattern" value="'-'yyyy_MM_dd'.log'"/>
+		<param name="Append" value="true"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss SSS}]%m%n"/>
+		</layout>
+	</appender>
+
+	<!-- Profile 로그  -->
+	<appender name="PROFILE" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="${SPIDER_LOG_HOME}/PROFILE_${SPIDER_INSTANCE_ID}"/>
+		<param name="DatePattern" value="'-'yyyy_MM_dd'.log'"/>
+		<param name="Append" value="true"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss SSS}]%m%n"/>
+		</layout>
+	</appender>
+
+	<!-- XML_ERROR -->
+	<appender name="XML_ERROR" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="${SPIDER_LOG_HOME}/XML_ERROR_${SPIDER_INSTANCE_ID}"/>
+		<param name="DatePattern" value="'-'yyyy_MM_dd'.log'"/>
+		<param name="Append" value="true"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss SSS}]%m%n"/>
+		</layout>
+	</appender>
+
+	<category name="TUNNING_LIST" additivity="false">
+		<appender-ref ref="MONITOR"/>
+	</category>
+
+	<category name="DB_ERROR" additivity="false">
+		<appender-ref ref="DB_ERROR"/>
+	</category>
+
+	<category name="ERROR" additivity="false">
+		<appender-ref ref="ERROR"/>
+	</category>
+
+	<category name="ADMIN_ACCESS" additivity="false">
+		<appender-ref ref="ADMIN_ACCESS"/>
+	</category>
+
+	<category name="MONITOR" additivity="false">
+		<appender-ref ref="MONITOR"/>
+	</category>
+
+	<category name="THREAD_MONITOR" additivity="false">
+		<priority value="info"/>
+		<appender-ref ref="THREAD_MONITOR"/>
+	</category>
+
+	<category name="MESSAGE" additivity="false">
+		<appender-ref ref="MESSAGE"/>
+	</category>
+
+	<category name="MSG_ERROR" additivity="false">
+		<appender-ref ref="MSG_ERROR"/>
+	</category>
+
+	<category name="USER_ACCESS" additivity="false">
+		<appender-ref ref="USER_ACCESS"/>
+	</category>
+
+	<category name="SQL" additivity="false">
+		<appender-ref ref="SQL"/>
+	</category>
+
+	<category name="EMAIL" additivity="false">
+		<appender-ref ref="EMAIL"/>
+	</category>
+
+	<category name="BATCH" additivity="false">
+		<appender-ref ref="BATCH"/>
+	</category>
+
+	<category name="SECURE_SIGN" additivity="false">
+		<appender-ref ref="SECURE_SIGN"/>
+	</category>
+
+	<category name="SPIDERLINK" additivity="false">
+		<appender-ref ref="DEBUG"/>
+	</category>
+
+	<category name="PROFILE" additivity="false">
+		<appender-ref ref="PROFILE"/>
+	</category>
+
+	<category name="DEBUG">
+		<appender-ref ref="DEBUG"/>
+	</category>
+
+	<category name="CONSOLE" additivity="false">
+	    <priority value="DEBUG"/>
+		<appender-ref ref="CONSOLE"/>
+	</category>
+
+	<category name="XML_ERROR" additivity="false">
+		<appender-ref ref="XML_ERROR"/>
+	</category>
+
+<!-- IBATIS에서 사용하는 로그 종류. 상위를 설정하면 하위가 모두 포함된다.
+log4j.logger.com.ibatis=DEBUG
+log4j.logger.com.ibatis.common.jdbc.SimpleDataSource=DEBUG
+log4j.logger.com.ibatis.common.jdbc.ScriptRunner=DEBUG
+log4j.logger.com.ibatis.sqlmap.engine.impl.SqlMapClientDelegate=DEBUG
+log4j.logger.java.sql.Connection=DEBUG
+log4j.logger.java.sql.Statement=DEBUG
+log4j.logger.java.sql.PreparedStatement=DEBUG
+log4j.logger.java.sql.ResultSet=DEBUG
+ -->
+    <category name="com.ibatis">
+		<appender-ref ref="CONSOLE"/>
+		<appender-ref ref="SQL"/>
+    </category>
+
+    <category name="java.sql.Connection">
+		<appender-ref ref="CONSOLE"/>
+		<appender-ref ref="SQL"/>
+    </category>
+
+    <category name="java.sql.Statement">
+		<appender-ref ref="CONSOLE"/>
+		<appender-ref ref="SQL"/>
+    </category>
+
+    <category name="java.sql.PreparedStatement">
+		<appender-ref ref="CONSOLE"/>
+		<appender-ref ref="SQL"/>
+    </category>
+
+<!-- resultset은 사용하지 않는다. 왜 DEBUG 파일에는 남는지..
+    <category name="java.sql.ResultSet">
+
+    </category>
+-->
+
+	<root>
+		<priority value="DEBUG"/>
+		<appender-ref ref="DEBUG"/>
+	</root>
+
+</log4j:configuration>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!--popup property -->
+<properties>
+	<Property key="CODEPOPUP" 
+		 value="poptest.web" 
+		 desc="팝업테스트" />
+</properties>

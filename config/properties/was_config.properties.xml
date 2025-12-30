@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!--was_config.properties.xml property -->
+<properties>
+
+	<Property key="MESSAGE_WAS_CONFIG" 
+		 value="CMS_AP" 
+		 desc="전문처리엔진 호출에로 사용되는 was config(공백이면 로컬에서 수행된다.)" />
+		 
+	<Property key="BIZ_WAS_CONFIG" 
+		 value="" 
+		 desc="biz class가 수행되는  was config(공백이면 로컬에서 수행된다.)" />
+	
+	<Property key="SERVICE_WAS_CONFIG_ID" 
+         value="" 
+         desc="서비스가 수행되는  was config(공백이면 로컬에서 수행된다.)" />
+		 
+	<Property key="BIZ_QUEUE_WAS_CONFIG" 
+		 value="" 
+		 desc="biz class를 비동기로 호출하기 위한 queue가 존재하는  was config(공백이면 로컬에서 수행된다.)" />
+		 
+	<Property key="WEB_WAS_CONFIG" 
+		 value="CW11,CW21" 
+		 desc="웹서버에 대한 WAS_CONFIG" />
+		 
+	<Property key="AP_WAS_CONFIG" 
+		 value="CA21" 
+		 desc="AP버에 대한 WAS_CONFIG" />
+	
+	<Property key="LOG_SERVER_WAS_CONFIG" 
+		 value="CA00" 
+		 desc="로그 서버에 대한 WAS_CONFIG" />
+		 
+	<Property key="default.INITIAL_CONTEXT_FACTORY" 
+		 value="weblogic.jndi.WLInitialContextFactory" 
+		 desc="default로 사용되는 was의 CONTEXT FACTORY" />
+		 
+<!-- 한 머신에서 여러 인스턴스가수행 될 수 있으므로 이부분은 생략하는 편이 낫다.
+	<Property key="default.PROVIDER_URL" 
+		 value="t3://localhost:7001" 
+		 desc="default로 사용되는 was의 service URL" />
+-->
+
+
+    
+	<Property key="CW11.INITIAL_CONTEXT_FACTORY" 
+		 value="weblogic.jndi.WLInitialContextFactory" 
+		 desc="CW11서버에 대한  was의 CONTEXT FACTORY" />
+		 
+	<Property key="CW11.PROVIDER_URL" 
+		 value="t3://172.16.1.15:8090" 
+		 desc="CW11서버에 대한  was의 service URL" />
+		 
+	<Property key="CW11.MANAGEMENT_AGENT_URL" 
+		 value="http://172.16.1.15:8090" 
+		 desc="CW11서버에 대한  managenent agent service URL" />
+
+         
+	<Property key="CW21.INITIAL_CONTEXT_FACTORY" 
+		 value="weblogic.jndi.WLInitialContextFactory" 
+		 desc="CW21서버에 대한  was의 CONTEXT FACTORY" />
+		 
+	<Property key="CW21.PROVIDER_URL" 
+		 value="t3://172.16.1.15:8091" 
+		 desc="CW21서버에 대한  was의 URL" />
+		 
+	<Property key="CW21.MANAGEMENT_AGENT_URL" 
+		 value="http://172.16.1.15:8091" 
+		 desc="CW11서버에 대한  management agent service URL" />
+		 
+	<Property key="CMS_AP.INITIAL_CONTEXT_FACTORY" 
+		 value="weblogic.jndi.WLInitialContextFactory" 
+		 desc="AP서버에 대한  was의 CONTEXT FACTORY" />
+		 
+	<Property key="CMS_AP.PROVIDER_URL" 
+		 value="t3://172.16.1.16:8081" 
+		 desc="AP서버에 대한  was의 service URL" />
+
+         
+	<Property key="CA11.INITIAL_CONTEXT_FACTORY" 
+		 value="weblogic.jndi.WLInitialContextFactory" 
+		 desc="CA11서버에 대한  was의 CONTEXT FACTORY" />
+		 
+	<Property key="CA11.PROVIDER_URL" 
+		 value="t3://172.16.1.16:8080" 
+		 desc="CA11서버에 대한  was의 service URL" />
+         
+		 
+	<Property key="CA21.INITIAL_CONTEXT_FACTORY" 
+		 value="weblogic.jndi.WLInitialContextFactory" 
+		 desc="CA21서버에 대한  was의 CONTEXT FACTORY" />
+		 
+	<Property key="CA21.PROVIDER_URL" 
+		 value="t3://172.16.1.16:8081" 
+		 desc="CA21서버에 대한  was의 service URL" />
+    
+    <Property key="CA21.MANAGEMENT_SERVER_IP" 
+         value="127.0.0.1" 
+         desc="CA21서버에 대한  management server ip" />
+         
+    <Property key="CA21.MANAGEMENT_SERVER_PORT" 
+         value="50005" 
+         desc="CA21서버에 대한  management server port" />
+         
+	
+	<Property key="CA00.INITIAL_CONTEXT_FACTORY" 
+		 value="weblogic.jndi.WLInitialContextFactory" 
+		 desc="CA00서버에 대한  was의 CONTEXT FACTORY" />
+		 
+	<Property key="CA00.PROVIDER_URL" 
+		 value="t3://localhost:7001" 
+		 desc="CA00서버에 대한  was의 service URL" />
+         
+	<Property key="EJB_CACHE_THRESHOLD" 
+		 value="120" 
+		 desc="EJB_CACHE_THRESHOLD 초 단위세팅 , 지정시간 이상 호출이 없으면 cache된 EJB 삭제" />		 
+		 
+</properties>

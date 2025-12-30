@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="IbatisSample">
+
+	<typeAlias alias="IbatisSample" type="test.ibatis.IbatisSample" />
+
+	<!-- resultMap id="samplevo" class="IbatisSample">
+		<result property="userId" column="USER_ID" />
+		<result property="userName" column="USER_NAME" />
+		<result property="descr" column="DESCR" />
+		<result property="count" column="COUNT" />
+		<result property="loc" column="LOC" />
+	</resultMap -->
+
+	<resultMap id="samplevo" class="java.util.HashMap">
+		<result property="userId" column="USER_ID" />
+		<result property="userName" column="USER_NAME" />
+		<result property="descr" column="DESCR" />
+		<result property="count" column="COUNT" />
+		<result property="loc" column="LOC" />
+	</resultMap>
+
+	<select id="selectAllVo" resultMap="samplevo">
+		SELECT * FROM IBATIS_SAMPLE
+	</select>
+
+	<select id="searchMap"
+		parameterClass="nebsoa.common.util.DataMap"
+		resultMap="samplevo">
+		SELECT USER_ID , USER_NAME , DESCR , COUNT , LOC
+		FROM IBATIS_SAMPLE
+		<dynamic prepend="WHERE">
+			<isNotNull prepend="AND" property="userId">
+				USER_ID = #userId#
+			</isNotNull>
+			<isNotNull prepend="AND" property="userName">
+				USER_NAME=#userName#
+			</isNotNull>
+		</dynamic>
+	</select>
+
+	<select id="searchList"
+		parameterClass="nebsoa.common.util.DataMap"
+		resultClass="java.util.HashMap">
+		SELECT USER_ID , USER_NAME , DESCR , COUNT , LOC
+		FROM IBATIS_SAMPLE
+		<dynamic prepend="WHERE">
+			<isNotNull prepend="AND" property="userId">
+				USER_ID = #userId#
+			</isNotNull>
+			<isNotNull prepend="AND" property="userName">
+				USER_NAME=#userName#
+			</isNotNull>
+		</dynamic>
+	</select>
+
+
+	<insert id="insertIbatisSample"
+		parameterClass="nebsoa.common.util.DataMap">
+		INSERT INTO IBATIS_SAMPLE 
+		( USER_ID , USER_NAME , DESCR , COUNT , LOC)
+		 VALUES ( #userId#, #userName#, #descr#, #count#, #loc# )
+	</insert>
+
+
+	<update id="updateIbatisSample" parameterClass="nebsoa.common.util.DataMap">
+		UPDATE IBATIS_SAMPLE SET 
+		<isNotNull property="userName">
+		USER_NAME = #userName#, 
+		</isNotNull>
+		DESCR =	#descr#, 
+		COUNT = #count#, 
+		LOC = #loc# 
+		WHERE USER_ID = #userId#
+	</update>
+
+
+	<delete id="deleteIbatisSample" parameterClass="nebsoa.common.util.DataMap">
+		DELETE FROM IBATIS_SAMPLE 
+		WHERE USER_ID = #userId# 
+	</delete>
+
+</sqlMap>

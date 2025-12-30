@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!--monitor property -->
+<properties>
+	<Property key="CONCURRENT_WORK_COUNT_TIMER_CLASS"
+		value="nebsoa.web.timer.ConcurrentWorkCountDataGatherer"
+		desc="동시 처리량을 주기적으로 저장합니다." />
+	<Property key="CONNECTION_TRACE_INDEX" value="6"
+		desc="CONNECTION TRACE INDEX" />
+	<Property key="CONNECTION_USE_TIME_THRESHOLD" value="1000"
+		desc="CONNECTION 사용 시간이 지정된 시간을 초과하면 로그를 남긴다:밀리세컨드 단위로 세팅" />
+	<Property key="DATA_SIZE_MONITOR_MODE" value="false"
+		desc="DATA_SIZE_MONITOR_MODE" />
+	<Property key="PREPAREDSTATEMENT_TRACE_INDEX" value="5"
+		desc="STATEMENT TRACE INDEX" />
+	<Property key="REPORT_SAVE_DIR" value="${APP_HOME}/logs"
+		desc="REPORT_SAVE_DIR" />
+	<Property key="REPORT_SAVE_MODE" value="false"
+		desc="REPORT_SAVE_MODE" />
+	<Property key="REPORT_SAVE_TERM" value="10"
+		desc="REPORT_SAVE_TERM : 분단위 지정" />
+	<Property key="RESULTSET_MAX_RECORD_COUNT" value="99"
+		desc="RESULTSET_MAX_RECORD_COUNT : DATA_SIZE_MONITOR_MODE가 true일때만 동작한다." />
+	<Property key="SQL_EXE_TIME_THRESHOLD" value="1000"
+		desc="쿼리 수행시간이 지정된 시간을 초과하면 로그를 남긴다:밀리세컨드 단위로 세팅" />
+	<Property key="STATEMENT_TRACE_INDEX" value="6"
+		desc="STATEMENT TRACE INDEX" />
+	<Property key="STATEMENT_USE_TIME_THRESHOLD" value="1000"
+		desc="Statement OR PreparedStatement 사용 시간이 지정된 시간을 초과하면 로그를 남긴다:밀리세컨드 단위로 세팅" />
+	<Property key="WEB_EXE_TIME_THRESHOLD" value="5000"
+		desc="WEB APP 수행시간이 지정된 시간을 초과하면 로그를 남긴다:밀리세컨드 단위로 세팅" />
+	
+	<!-- PROFILE 관련 설정 정보 -->
+	<Property key="PROFILER.MODE" 
+		 value="ON"
+		 desc="PROFILER 기동 모드" />
+	<Property key="PROFILER.REPORT.MODE" 
+		 value="OFF"
+		 desc="PROFILER를 팝업으로 보여 줄 것인지 모드" />	 		 	 
+	<Property key="PROFILER.REPORT.TIME_THRESHOLD" 
+		 value="1000"
+		 desc="지정된 시간을 초과하면 PROFILER를 팝업으로 보여준다:밀리세컨드 단위로 세팅" />	 		 	 
+		 
+	<!-- 성능모니터링  관련 설정 정보 -->
+	<Property key="WEB_MONITOR_MODE" 
+		 value="ON" 
+		 desc="WEB URL별 성능 모니터링 여부" />
+	<Property key="MESSAGE_MONITOR_MODE" 
+		 value="ON" 
+		 desc="전문 수행성능 모니터링 모드" />
+	<Property key="QUERY_MONITOR_MODE" 
+         value="ON" 
+         desc="SQL 수행성능 모니터링 모드" />
+         
+	<!-- 운영통계차트 관련 설정 정보 -->
+	<Property key="MESSAGE_MONITORING_CHART_MODE" value="ON"
+		desc="전문 모니터링 차트 모드" />
+	<Property key="MESSAGE_MONITORING_CHART_CACHE_SIZE" value="3000"
+		desc="전문 모니터링 차트 CACHE SIZE" />
+	<Property key="MESSAGE_MONITORING_CHART_CACHE_KEEP_TIME"
+		value="60000" 
+		desc="전문 모니터링 차트 데이터 유지 시간" />
+		
+	<Property key="WEB_MONITORING_CHART_MODE" value="OFF"
+		desc="웹 모니터링 차트 모드" />
+	<Property key="WEB_MONITORING_CHART_CACHE_SIZE" value="30"
+		desc="웹 모니터링 차트 CACHE SIZE" />
+	<Property key="WEB_MONITORING_CHART_CACHE_KEEP_TIME"
+		value="1800000" 
+		desc="웹 모니터링 차트 데이터 유지 시간" />
+
+ <!-- 통합 모니터링  관련 설정 정보 -->     
+ 	
+    <Property key="MONITOR_USE_MODE" 
+		 value="true" 
+		 desc="모니터링 AGENT 사용여부" />	
+
+	<Property key="MONITOR_LOG_USE_MODE" 
+		 value="OFF" 
+		 desc="모니터링 LOG 사용여부" />
+		 
+	<Property  key="ADMIN.CONTEXT_PATH"
+		 value="ibsmgr"
+		 desc="admin의 context path" />	 
+		 
+    <Property key="MONITOR_SERVER_IP" 
+		 value="192.168.10.102" 
+		 desc="모니터링 서버 IP" />		 
+ 
+	<Property key="MONITOR_SERVER_PORT" 
+		 value="18567" 
+		 desc="모니터링 서버 PORT" />
+
+ 	<Property key="MESSAGE_ORG.USE_MODE" 
+		 value="ON" 
+		 desc="기관별 전문처리 모니터링 데이타 전송여부" />
+    <Property key="MESSAGE_ORG.INSTANCE_LIST" 
+		 value="AP06,AP07,CA21" 
+		 desc="기관별 전문처리 모니터링 데이타 전송 및 수집하는 INSTANCE LIST" />
+	<Property key="MESSAGE_ORG.PERIOD" 
+		 value="10000" 
+		 desc="기관별 전문처리 모니터링 데이타 전송주기" />
+	<Property key="MESSAGE_ORG.MONITOR_AGENT_CLASS" 
+		 value="nebsoa.monitor.client.agent.MessageOrgMonitorAgent" 
+		 desc="기관별 전문처리 모니터링 데이타 전송클래스" />
+	
+	<Property key="MESSAGE_MAIN_TRX.USE_MODE" 
+		 value="ON" 
+		 desc="주요거래별 전문처리 모니터링 데이타 전송여부" />	 
+    <Property key="MESSAGE_MAIN_TRX.INSTANCE_LIST" 
+		 value="AP06,AP07,CA21" 
+		 desc="주요거래별 전문처리 모니터링 데이타 전송 및 수집하는 INSTANCE LIST" />
+	<Property key="MESSAGE_MAIN_TRX.PERIOD" 
+		 value="10000" 
+		 desc="주요거래별 전문처리 모니터링 데이타 전송주기" />
+	<Property key="MESSAGE_MAIN_TRX.MONITOR_AGENT_CLASS" 
+		 value="nebsoa.monitor.client.agent.MessageMainTrxMonitorAgent" 
+		 desc="주요거래별 전문처리 모니터링 데이타 전송클래스" />
+	<Property key="MESSAGE_MAIN_TRX.TRX_ID_LIST" 
+		 value="C01010,C01010_EI,C01010_T" 
+		 desc="주요거래 LIST" />
+	
+	<Property key="MESSAGE_BANK.USE_MODE" 
+		 value="ON" 
+		 desc="타행수취 은행별 전문처리 모니터링 데이타 전송여부" />
+    <Property key="MESSAGE_BANK.INSTANCE_LIST" 
+		 value="AP06,AP07,CA21" 
+		 desc="은행별 전문처리 모니터링 데이타 전송 및 수집하는 INSTANCE LIST" />
+	<Property key="MESSAGE_BANK.PERIOD" 
+		 value="10000" 
+		 desc="타행수취 은행별 전문처리 모니터링 데이타 전송주기" />
+	<Property key="MESSAGE_BANK.MONITOR_AGENT_CLASS" 
+		 value="nebsoa.monitor.client.agent.MessageBankMonitorAgent" 
+		 desc="타행수취 은행별 전문처리 모니터링 데이타 전송클래스" />
+	
+	<Property key="MEMORY.USE_MODE" 
+		 value="ON" 
+		 desc="메모리 모니터링 데이타 전송여부" />	 
+    <Property key="MEMORY.INSTANCE_LIST" 
+		 value="AP06,AP07,CA21" 
+		 desc="메모리 모니터링 데이타 전송하는 INSTANCE LIST" />
+	<Property key="MEMORY.PERIOD" 
+		 value="10000" 
+		 desc="메모리 모니터링 데이타 전송주기" />
+	<Property key="MEMORY.MONITOR_AGENT_CLASS" 
+		 value="nebsoa.monitor.client.agent.MemoryMonitorAgent" 
+		 desc="메모리 모니터링 데이타 전송클래스" />
+	
+	<Property key="THREAD.USE_MODE" 
+		 value="ON" 
+		 desc="쓰레드 모니터링 데이타 전송여부" />	 
+    <Property key="THREAD.INSTANCE_LIST" 
+		 value="AP06,AP07,CA21" 
+		 desc="쓰레드 모니터링 데이타 전송하는 INSTANCE LIST" />
+	<Property key="THREAD.PERIOD" 
+		 value="10000" 
+		 desc="쓰레드 모니터링 데이타 전송주기" />
+	<Property key="THREAD.MONITOR_AGENT_CLASS" 
+		 value="nebsoa.monitor.client.agent.ThreadMonitorAgent" 
+		 desc="쓰레드 모니터링 데이타 전송클래스" />
+	
+	<Property key="CPU.USE_MODE" 
+		 value="ON" 
+		 desc="CPU 모니터링 데이타 전송여부" />	 
+	<Property key="CPU.INSTANCE_LIST" 
+		 value="AP06,AP07,CA21" 
+		 desc="CPU 모니터링 데이타 전송하는 INSTANCE LIST" />
+	<Property key="CPU.PERIOD" 
+		 value="10000" 
+		 desc="CPU 모니터링 데이타 전송주기" />
+	<Property key="CPU.MONITOR_AGENT_CLASS" 
+		 value="nebsoa.monitor.client.agent.CPUMonitorAgent" 
+		 desc="CPU 모니터링 데이타 전송클래스" />	     
+	
+	<Property key="MAIN_SUCCESS_LIMIT"
+		value="850" 
+		desc="주요 거래 모니터링 성공 한계치 설정" />
+	<Property key="MAIN_FAIL_LIMIT"
+		value="100" 
+		desc="주요 거래 모니터링 실패 한계치 설정" />		
+	<Property key="MAIN_TIME_LIMIT"
+		value="300" 
+		desc="주요 거래 모니터링 평균 처리 시간 한계치 설정" />
+	<Property key="MAIN_SUCCESS_COLOR"
+		value="0000ff" 
+		desc="주요 거래 모니터링 성공 한계치 색상" />
+	<Property key="MAIN_FAIL_COLOR"
+		value="ff0000" 
+		desc="주요 거래 모니터링 실패 한계치 색상" />		
+	<Property key="MAIN_TIME_COLOR"
+		value="00ff00" 
+		desc="주요 거래 모니터링 평균 처리 시간 한계치 색상" />		
+		
+	<Property key="BANK_SUCCESS_LIMIT"
+		value="850" 
+		desc="타행 수취 모니터링 성공 한계치 설정" />
+	<Property key="BANK_FAIL_LIMIT"
+		value="100" 
+		desc="타행 수취 모니터링 실패 한계치 설정" />		
+	<Property key="BANK_TIME_LIMIT"
+		value="300" 
+		desc="타행 수취 모니터링 평균 처리 시간 한계치 설정" />
+	<Property key="BANK_SUCCESS_COLOR"
+		value="0000ff" 
+		desc="타행 수취 모니터링 성공 한계치 색상" />
+	<Property key="BANK_FAIL_COLOR"
+		value="ff0000" 
+		desc="타행 수취 모니터링 실패 한계치 색상" />		
+	<Property key="BANK_TIME_COLOR"
+		value="00ff00" 
+		desc="타행 수취 모니터링 평균 처리 시간 한계치 색상" />	
+		
+	<Property key="ORG_SUCCESS_LIMIT"
+		value="850" 
+		desc="기관별 전문  모니터링 성공 한계치 설정" />
+	<Property key="ORG_FAIL_LIMIT"
+		value="100" 
+		desc="기관별 전문 모니터링 실패 한계치 설정" />		
+	<Property key="ORG_SUCCESS_COLOR"
+		value="0000ff" 
+		desc="기관별 전문 모니터링 성공 한계치 색상" />
+	<Property key="ORG_FAIL_COLOR"
+		value="ff0000" 
+		desc="기관별 전문 모니터링 실패 한계치 색상" />	
+		
+	<Property key="CPU_LIMIT"
+		value="80" 
+		desc="CPU 한계치 설정" />	
+	<Property key="CPU_LIMIT_COLOR"
+		value="ff0000" 
+		desc="CPU 한계치 색상" />
+		
+	<Property key="MEMORY_LIMIT"
+		value="80" 
+		desc="MEMORY 한계치 설정" />	
+	<Property key="MEMORY_LIMIT_COLOR"
+		value="ff0000" 
+		desc="MEMORY 한계치 색상" />	
+		
+	<Property key="MAIN_ERROR_LIST"
+		value="FRS00014,FRS00005" 
+		desc="주요 에러 LIST" />
+	
+	<Property key="MAIN_ERROR_NAME"
+		value="ff0000" 
+		desc="주요 에러 명" />					
+		
+</properties>
